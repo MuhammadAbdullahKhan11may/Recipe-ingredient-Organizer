@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Food Recipe Organiser</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- ── FIXED NAV ── -->
+<nav>
+  <div class="nav-logo">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+      <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+      <path d="M2 17l10 5 10-5"/>
+      <path d="M2 12l10 5 10-5"/>
+    </svg>
+    RecipeOrg
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home" class="nav-active">Home</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#features">Key Features</a></li>
+    <li><a href="#discover">Discover</a></li>
+    <li><a href="#recipe">Recipes</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#recipe" class="nav-cta">Get Started</a>
+</nav>
+
+<!-- ══════════════════════════════════════
+     HERO SECTION
+══════════════════════════════════════ -->
+<section id="home">
+
+  <!-- LEFT: text -->
+  <div class="hero-left">
+    <div class="hero-badge">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+      </svg>
+      COOK &bull; SHARE &bull; ORGANISE &bull; REPEAT
+    </div>
+
+    <h1 class="hero-title">
+      Food<br>Recipe<br><span class="hero-title-green">Organiser</span>
+    </h1>
+
+    <p class="hero-desc">
+      Organise your favourite recipes, plan meals,
+      and discover new culinary inspiration.
+    </p>
+
+    <div class="hero-btns">
+      <a href="#recipe" class="btn btn-hero-blue">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+        </svg>
+        Get Started →
+      </a>
+
+    </div>
+
+    <!-- Stats row -->
+    <div class="hero-stats">
+      <div class="hero-stat-item">
+        <svg width="20" height="20" fill="none" stroke="#22c55e" stroke-width="1.8" viewBox="0 0 24 24">
+          <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+          <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+        </svg>
+        <div><span class="hero-stat-num">Organise </span><span class="hero-stat-label">recipes</span></div>
+      </div>
+      <div class="hero-stat-item">
+        <svg width="20" height="20" fill="none" stroke="#22c55e" stroke-width="1.8" viewBox="0 0 24 24">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        <div><span class="hero-stat-num">User </span><span class="hero-stat-label"> Friendly</span></div>
+      </div>
+      <div class="hero-stat-item">
+        <svg width="20" height="20" fill="none" stroke="#22c55e" stroke-width="1.8" viewBox="0 0 24 24">
+          <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+        </svg>
+        <div><span class="hero-stat-num">clean </span><span class="hero-stat-label"> layout</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: image fills full height -->
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <img src="img 1.jpg" alt="Delicious Food" class="hero-food-img"/>
+
+      <!-- dot grids -->
+      <div class="hero-dots hero-dots-tl">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+      <div class="hero-dots hero-dots-br">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <!-- floating badge -->
+      <div class="hero-img-badge">
+        <div class="badge-icon">🍴</div>
+        <div>
+          <strong>Delicious Recipes</strong>
+          <span>Made simple and organised just for you!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════
+     FEATURES STRIP (4 cards)
+══════════════════════════════════════ -->
+<section id="features-strip">
+  <div class="features-strip-grid">
+<div class="fstrip-card" style="cursor:default;">
+  <div class="fstrip-icon">
+    <svg width="24" height="24" fill="none" stroke="#22c55e" stroke-width="1.8" viewBox="0 0 24 24">
+      <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+      <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+    </svg>
+  </div>
+  <div><strong>Organise</strong><p>Save and organise your recipes in one place.</p></div>
+</div>
+<div class="fstrip-card" style="cursor:default;">
+  <div class="fstrip-icon">
+    <svg width="24" height="24" fill="none" stroke="#22c55e" stroke-width="1.8" viewBox="0 0 24 24">
+      <rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/>
+      <line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+    </svg>
+  </div>
+  <div><strong>Plan Meals</strong><p>Plan your meals ahead and stay organised.</p></div>
+</div>
+<div class="fstrip-card" style="cursor:default;">
+  <div class="fstrip-icon">
+    <svg width="24" height="24" fill="none" stroke="#22c55e" stroke-width="1.8" viewBox="0 0 24 24">
+      <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+    </svg>
+  </div>
+  <div><strong>Discover</strong><p>Find new recipes and culinary inspiration.</p></div>
+</div>
+<div class="fstrip-card" style="cursor:default;">
+  <div class="fstrip-icon">
+    <svg width="24" height="24" fill="none" stroke="#22c55e" stroke-width="1.8" viewBox="0 0 24 24">
+      <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+      <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+      <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+    </svg>
+  </div>
+  <div><strong>Share</strong><p>Share your recipes with family and friends.</p></div>
+</div>
+ 
+</section>
+
+<!-- ══════════════════════════════════════
+     ABOUT US
+══════════════════════════════════════ -->
+<section id="about">
+  <div class="section-label" style="text-align:center;">About Us</div>
+  <div class="about-layout">
+    <div class="about-img-wrap">
+      <img src="img 5.webp" alt="Food spread" class="about-img"/>
+    </div>
+    <div class="about-text-wrap">
+      <div class="about-box">
+        Welcome to <strong>Recipe Organizer</strong>, a smart and user-friendly platform designed to simplify recipe management.
+        Our website helps users organize recipes, manage ingredients efficiently, and quickly access cooking information in one place.
+        Whether you're a home cook, student, or food enthusiast, Recipe Organizer provides a convenient way to keep your recipes
+        structured, searchable, and easy to maintain.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     KEY FEATURES
+══════════════════════════════════════ -->
+<section id="features">
+  <div class="section-label" style="text-align:center;">Key Features</div>
+
+  <!-- ROW 1 -->
+  <div class="features-row">
+    <div class="features-col features-list">
+      <div class="feature-card">
+        <span class="feature-icon">📋</span>
+        <div><div class="feature-title">Add Recipes</div>
+        <div class="feature-desc">Easily add new recipes with a name and ingredients in seconds.</div></div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">👁️</span>
+        <div><div class="feature-title">View Recipes</div>
+        <div class="feature-desc">Browse all your saved recipes in a clean, organized card layout.</div></div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">💾</span>
+        <div><div class="feature-title">Save Recipes</div>
+        <div class="feature-desc">Persist your recipes to JSON files for future access anytime.</div></div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🗑️</span>
+        <div><div class="feature-title">Delete Recipes</div>
+        <div class="feature-desc">Remove unwanted recipes with one click and undo if needed.</div></div>
+      </div>
+    </div>
+    <div class="features-col features-img-wrap">
+      <img src="img 4.jpg" alt="Recipe Management" class="feature-img"/>
+    </div>
+  </div>
+
+  <!-- ROW 2 -->
+  <div class="features-row features-row-reverse">
+    <div class="features-col features-img-wrap">
+      <img src="img 2.png" alt="Ingredients" class="feature-img"/>
+    </div>
+    <div class="features-col features-list">
+      <div class="feature-card">
+        <span class="feature-icon">🥕</span>
+        <div><div class="feature-title">Add Ingredients</div>
+        <div class="feature-desc">Tag-based ingredient input with instant add via Enter or button.</div></div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">✂️</span>
+        <div><div class="feature-title">Delete Ingredients</div>
+        <div class="feature-desc">Remove individual ingredients from any recipe with ease.</div></div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🔍</span>
+        <div><div class="feature-title">Search Recipes</div>
+        <div class="feature-desc">Instantly find any recipe by name using fast binary search.</div></div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🧪</span>
+        <div><div class="feature-title">Search Ingredients</div>
+        <div class="feature-desc">Look up which recipes contain a specific ingredient.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROW 3 -->
+  <div class="features-row">
+    <div class="features-col features-list">
+      <div class="feature-card">
+        <span class="feature-icon">➕</span>
+        <div><div class="feature-title">Calculate Total Ingredients</div>
+        <div class="feature-desc">Use union operations to get the full combined ingredient list across recipes.</div></div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">∩</span>
+        <div><div class="feature-title">Find Common Ingredients</div>
+        <div class="feature-desc">Intersection operations reveal shared ingredients between recipes.</div></div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">∪</span>
+        <div><div class="feature-title">Find Combined Ingredients</div>
+        <div class="feature-desc">Union operations compile a master ingredient list across recipes.</div></div>
+      </div>
+      <div class="feature-card">
+        <span class="feature-icon">🖥️</span>
+        <div><div class="feature-title">User-Friendly Interface</div>
+        <div class="feature-desc">Simple, intuitive design with smooth navigation and interactive feedback.</div></div>
+      </div>
+    </div>
+    <div class="features-col features-img-wrap">
+      <img src="img 3.jpeg" alt="Food Analysis" class="feature-img"/>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     DISCOVER SECTION
+══════════════════════════════════════ -->
+<section id="discover">
+  <div class="discover-layout">
+
+    <!-- Left: text -->
+    <div class="discover-text">
+      <div class="hero-badge" style="margin-bottom:1.2rem;">
+        <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        EXPLORE • TASTE • INSPIRE
+      </div>
+
+      <h2 class="section-label" style="margin-bottom:1rem;">Discover More</h2>
+
+      <p class="discover-desc">
+        Find new flavors and cooking ideas from a growing collection of recipes.
+        Explore dishes for every occasion, discover meal inspirations, and uncover
+        recipes that match your taste and preferences.
+      </p>
+
+      <a href="discover.html" class="btn btn-discover-blue">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        Browse For More
+      </a>
+    </div>
+
+    <!-- Right: image -->
+    <div class="discover-img-wrap">
+<img
+  src="img 9.jpg"
+  alt="Discover Recipes"
+  class="discover-img"
+/>
+      <div class="discover-img-glow"></div>
+    </div>
+
+  </div>
+</section>
+
+
+
+
+<!-- ══════════════════════════════════════
+     RECIPE APP
+══════════════════════════════════════ -->
+<section id="recipe">
+  <div class="section-label">Recipe Manager</div>
+  <div class="recipe-layout">
+
+    <div class="sidebar">
+      <button class="sidebar-btn active" onclick="showPanel('list', this)"><span class="icon">📋</span> All Recipes</button>
+      <button class="sidebar-btn" onclick="showPanel('add', this)"><span class="icon">➕</span> Add Recipe</button>
+      <button class="sidebar-btn" onclick="showPanel('union', this)"><span class="icon">∪</span> Total Ingredients</button>
+      <button class="sidebar-btn" onclick="showPanel('intersection', this)"><span class="icon">∩</span> Common Ingredients</button>
+      <button class="sidebar-btn" onclick="showPanel('search', this)"><span class="icon">🔍</span> Search Recipe</button>
+      <button class="sidebar-btn" onclick="showPanel('delete', this)"><span class="icon">🗑️</span> Delete Recipe</button>
+
+      
+<button class="sidebar-btn" onclick="showPanel('mealplanner', this)"><span class="icon">📅</span> Plan Meals</button>
+      <input type="file" id="fileInput" accept=".json" class="hidden" onchange="loadFromJSON(event)"/>
+    </div>
+
+    <div class="main-panel">
+
+      <div id="panel-list">
+        <div class="panel-title">📋 All Recipes</div>
+        <div id="recipe-list-container"></div>
+      </div>
+
+      <div id="panel-add" class="hidden">
+        <div class="panel-title">➕ Add New Recipe</div>
+        <div class="form-group">
+          <label class="form-label">Recipe Name</label>
+          <input id="add-name" class="form-input" placeholder="e.g. Chicken Biryani" oninput="validateName(this)"/>
+          <div id="name-error" style="color:#ef4444;font-size:0.8rem;margin-top:0.3rem;"></div>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Add Ingredient (press Enter or click Add)</label>
+          <div class="row">
+            <input id="ing-input" class="form-input" style="flex:1" placeholder="e.g. tomato"
+              onkeydown="if(event.key==='Enter')addIngredientTag()" oninput="validateIng(this)"/>
+            <button class="btn btn-green" onclick="addIngredientTag()">Add</button>
+          </div>
+          <div id="ing-error" style="color:#ef4444;font-size:0.8rem;margin-top:0.3rem;"></div>
+          <div class="tag-list" id="ing-tags"></div>
+        </div>
+        <button class="btn btn-green" onclick="submitRecipe()">Save Recipe</button>
+      </div>
+
+      <div id="panel-union" class="hidden">
+        <div class="panel-title">∪ Total Ingredients</div>
+        <div class="form-group">
+          <label class="form-label">Recipe A</label>
+          <select id="union-a" class="form-select"></select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Recipe B</label>
+          <select id="union-b" class="form-select"></select>
+        </div>
+        <div class="row">
+          <button class="btn btn-green" onclick="computeUnion(false)">A ∪ B</button>
+          <button class="btn btn-outline" onclick="computeUnion(true)">All Recipes</button>
+        </div>
+        <div class="result-box mt1 hidden" id="union-result"></div>
+      </div>
+
+      <div id="panel-intersection" class="hidden">
+        <div class="panel-title">Common Ingredients </div>
+        <div class="form-group">
+          <label class="form-label">Recipe A</label>
+          <select id="inter-a" class="form-select"></select>
+        </div>
+        <div class="form-group">
+          <label class="form-label">Recipe B</label>
+          <select id="inter-b" class="form-select"></select>
+        </div>
+        <div class="row">
+          <button class="btn btn-green" onclick="computeIntersection(false)">A ∩ B</button>
+          <button class="btn btn-outline" onclick="computeIntersection(true)">All Recipes</button>
+        </div>
+        <div class="result-box mt1 hidden" id="inter-result"></div>
+      </div>
+
+      <div id="panel-search" class="hidden">
+        <div class="panel-title">🔍 Search Recipe </div>
+        <div class="form-group">
+          <label class="form-label">Recipe Name</label>
+          <div class="row">
+            <input id="search-input" class="form-input" style="flex:1" placeholder="Enter name..."
+              onkeydown="if(event.key==='Enter')searchRecipe()"/>
+            <button class="btn btn-green" onclick="searchRecipe()">Search</button>
+          </div>
+        </div>
+        <div id="search-result"></div>
+      </div>
+
+      <div id="panel-delete" class="hidden">
+        <div class="panel-title">🗑️ Delete Recipe</div>
+        <div class="form-group">
+          <label class="form-label">Select Recipe to Delete</label>
+          <select id="delete-select" class="form-select"></select>
+        </div>
+        <button class="btn btn-red" onclick="deleteSelected()">Delete</button>
+        <p style="color:#666;font-size:0.82rem;margin-top:0.75rem;">Use ↩️ Undo Delete in sidebar to restore.</p>
+      </div>
+<div id="panel-mealplanner" class="hidden">
+  <div class="panel-title">📅 Meal Planner — 2026</div>
+
+  <!-- Month nav -->
+  <div class="mp-month-nav">
+    <span id="mp-month-label" class="mp-month-title">January 2026</span>
+    <button class="mp-arrow-btn" onclick="mpNextMonth()">›</button>
+  </div>
+
+  <!-- Calendar grid -->
+  <div class="mp-weekdays">
+    <span>Sun</span><span>Mon</span><span>Tue</span>
+    <span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+  </div>
+  <div id="mp-calendar-grid" class="mp-grid"></div>
+
+  <!-- Meal form (shown on date click) -->
+  <div id="mp-form-area" class="mp-form-area hidden">
+    <div class="mp-form-header">
+      <span id="mp-selected-date-label" class="mp-date-label"></span>
+      <button class="mp-close-btn" onclick="document.getElementById('mp-form-area').classList.add('hidden')">✕</button>
+    </div>
+
+    <!-- Saved meals display -->
+    <div id="mp-saved-display" class="mp-saved-display hidden"></div>
+
+    <!-- Meal entry rows -->
+    <div id="mp-meal-rows"></div>
+
+    <div class="mp-form-actions">
+      <button class="btn btn-outline" onclick="mpAddMealRow()">+ Add Another Meal</button>
+      <button class="btn btn-green"   onclick="mpSaveMeals()">💾 Save</button>
+    </div>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════
+     CONTACT
+══════════════════════════════════════ -->
+<section id="contact">
+  <div class="section-label" style="text-align:center;">Contact Us</div>
+  <p class="contact-subtitle">Have questions or want to connect? Reach out to our team.</p>
+  <div class="contact-grid">
+
+    <div class="contact-card" onclick="openMemberModal('abdullah')" style="cursor:pointer;">
+      <div class="contact-avatar" style="background:none;padding:0;overflow:hidden;">
+        <img src="img 7.jpeg" alt="Abdullah Khan"
+          style="width:100%;height:100%;object-fit:cover;object-position:top;border-radius:50%;"/>
+      </div>
+      <div class="contact-name">Abdullah Khan</div>
+      <div class="contact-role">Team Leader</div>
+      <div class="contact-divider"></div>
+      <a href="https://www.linkedin.com/in/muhammad-abdullah-khan-34b156402" target="_blank" class="contact-link">
+        <span class="contact-link-icon">💼</span><span>LinkedIn Profile</span>
+      </a>
+      <a href="tel:03192096617" class="contact-link">
+        <span class="contact-link-icon">📞</span><span>03192096617</span>
+      </a>
+    </div>
+
+    <!-- Abdul Hannan card -->
+<div class="contact-card" onclick="openMemberModal('hannan')" style="cursor:pointer;">
+  <div class="contact-avatar" style="background:none;padding:0;overflow:hidden;">
+    <img src="img 10.jpeg" alt="Abdul Hannan Sheikh"
+      style="width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:50%;"/>
+  </div>
+  <div class="contact-name">Abdul Hannan Shaikh</div>
+      <div class="contact-role">Team Member</div>
+      <div class="contact-divider"></div>
+      <a href="https://www.linkedin.com/in/abdul-hannan-shaikh-2727b630b" target="_blank" class="contact-link">
+        <span class="contact-link-icon">💼</span><span>LinkedIn Profile</span>
+      </a>
+      <a href="tel:03340638457" class="contact-link">
+        <span class="contact-link-icon">📞</span><span>0334 0638457</span>
+      </a>
+    </div>
+
+<div class="contact-card" onclick="openMemberModal('bilal')" style="cursor:pointer;">
+  <div class="contact-avatar" style="background:none;padding:0;overflow:hidden;">
+    <img src="img 8.png" alt="Bilal Faheem"
+      style="width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:50%;"/>
+  </div>
+  <div class="contact-name">Bilal Faheem</div>
+      <div class="contact-role">Team Member</div>
+      <div class="contact-divider"></div>
+      <a href="https://www.linkedin.com/in/muhammad-bilal-b74398377" target="_blank" class="contact-link">
+        <span class="contact-link-icon">💼</span><span>LinkedIn Profile</span>
+      </a>
+      <a href="tel:03052691363" class="contact-link">
+        <span class="contact-link-icon">📞</span><span>03052691363</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div style="font-family:'Syne',sans-serif;color:#555;font-weight:700;">🍃 RecipeOrg</div>
+  <div>© 2025 Recipe Organiser. All rights reserved.</div>
+</footer>
+
+<!-- ── Member Modal ── -->
+<div id="member-modal" class="mm-overlay hidden" onclick="closeMemberModal()">
+  <div class="mm-box" onclick="event.stopPropagation()">
+    <button class="mm-close" onclick="closeMemberModal()">✕</button>
+
+    <div class="mm-layout">
+      <!-- Left: photo -->
+      <div class="mm-photo-wrap">
+        <img id="mm-photo" src="" alt=""/>
+      </div>
+
+      <!-- Right: info -->
+      <div class="mm-info">
+        <div id="mm-name"  class="mm-name"></div>
+        <div id="mm-role"  class="mm-role"></div>
+        <div class="mm-divider"></div>
+        <div id="mm-links" class="mm-links"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+<script src="script.js"></script>
+
+</body>
+</html>

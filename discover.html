@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Discover — RecipeOrg</title>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="discover.css"/>
+ 
+ 
+</head>
+<body>
+
+<!-- ── FIXED NAV ── -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#22c55e" stroke-width="2">
+      <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+      <path d="M2 17l10 5 10-5"/>
+      <path d="M2 12l10 5 10-5"/>
+    </svg>
+    RecipeOrg
+  </a>
+  <ul class="nav-links">
+    <li><a href="recipe-organizer.html#home">Home</a></li>
+    <li><a href="recipe-organizer.html#about">About Us</a></li>
+    <li><a href="recipe-organizer.html#features">Key Features</a></li>
+    <li><a href="discover.html" class="active">Discover</a></li>
+    <li><a href="recipe-organizer.html#recipie">Recipes</a></li>
+    <!-- ADD as last <li> inside .nav-links -->
+<li><a href="#discover-contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- ── BLOBS ── -->
+<div class="d-blob1"></div>
+<div class="d-blob2"></div>
+<div class="d-blob3"></div>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section id="discover-hero">
+
+  <!-- LEFT: text -->
+  <div class="d-left">
+    <div class="d-badge">
+      <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <circle cx="11" cy="11" r="8"/>
+        <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+      </svg>
+      EXPLORE &bull; TASTE &bull; INSPIRE
+    </div>
+
+    <h1 class="d-title">
+      Discover<br><span>More</span>
+    </h1>
+
+    <p class="d-desc">
+      Find new flavors and cooking ideas from a growing collection of recipes.
+      Explore dishes for every occasion, discover meal inspirations, and uncover
+      recipes that match your taste and preferences.
+    </p>
+
+    <div class="d-btns">
+      <!-- Blue pulsing button -->
+      <a href="#recipe-strip" class="btn-blue">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        Browse For More
+      </a>
+
+      <!-- Back to Home -->
+      <a href="recipe-organizer.html" class="btn-back">
+        <svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <line x1="19" y1="12" x2="5" y2="12"/>
+          <polyline points="12 19 5 12 12 5"/>
+        </svg>
+        Back To Home Page
+      </a>
+    </div>
+
+    <!-- Stats strip -->
+    <div class="d-stats">
+      <div class="d-stat">
+        <span class="d-stat-num">20 Min</span>
+        <span class="d-stat-label">Quick & Easy Meals</span>
+      </div>
+      <div class="d-stat">
+        <span class="d-stat-num">Step-by-Step</span>
+        <span class="d-stat-label">Guided Cooking</span>
+      </div>
+      <div class="d-stat">
+        <span class="d-stat-num">Smart Filter</span>
+        <span class="d-stat-label">Cook by Ingredient</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- RIGHT: image -->
+  <div class="d-right">
+
+    <!-- Dot grids -->
+    <div class="d-dots d-dots-tl">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="d-dots d-dots-br">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="d-img-wrap">
+      <!-- REPLACE WITH -->
+<img
+  src="img 9.jpg"
+  alt="Discover Recipes"
+  class="d-img"
+/>
+
+      <!-- Floating badge -->
+      <div class="d-img-badge">
+        <div class="d-badge-icon">🍰</div>
+        <div>
+          <strong>New Recipes Daily</strong>
+          <span>Fresh ideas for every occasion</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ══════════════════════════════════════
+     RECIPE CARDS STRIP
+══════════════════════════════════════ -->
+<section id="recipe-strip">
+  <div class="strip-title">Popular Categories</div>
+  <div class="strip-sub">Browse recipes by category and find something new to cook today.</div>
+<!-- Recipe Counter -->
+<div class="recipe-counter">
+  <span id="recipe-count">0</span> Recipes Found
+</div>
+  <!-- FILTER BUTTONS -->
+  <div class="filter-bar">
+    <button class="filter-btn active" onclick="filterRecipes('all', this)">🍽️ All</button>
+    <button class="filter-btn" onclick="filterRecipes('Dinner', this)">🥘 Dinner</button>
+    <button class="filter-btn" onclick="filterRecipes('Lunch', this)">🥗 Lunch</button>
+    <button class="filter-btn" onclick="filterRecipes('Breakfast', this)">🍳 Breakfast</button>
+    <button class="filter-btn" onclick="filterRecipes('Dessert', this)">🍰 Dessert</button>
+    <button class="filter-btn" onclick="filterRecipes('Snack', this)">🧀 Snack</button>
+    <button class="filter-btn" onclick="filterRecipes('Beverage', this)">🥂 Beverage</button>
+    <button class="filter-btn" onclick="filterRecipes('Quick Meals', this)">⚡ Quick Meals</button>
+    <button class="filter-btn" onclick="filterRecipes('Main Dish', this)">🍽️ Main dish</button>
+  </div>
+
+  <div class="recipe-strip-grid">
+
+    <div class="rstrip-card" data-category="Main Dish" onclick="openModal('img 1.jpg', 'Classic Lasagna', 'Main Dish', 'Layers of pasta, rich meat sauce, and melted cheese baked to golden perfection.')">
+      <img src="img 1.jpg" alt="Main Dish" class="rstrip-img"/>
+      <div class="rstrip-body">
+        <div class="rstrip-cat">Main Dish</div>
+        <div class="rstrip-name">Classic Lasagna</div>
+        <div class="rstrip-desc">Layers of pasta, rich meat sauce, and melted cheese baked to golden perfection.</div>
+      </div>
+    </div>
+
+    <div class="rstrip-card" data-category="Dessert" onclick="openModal('img 9.jpg', 'Chocolate Cake', 'Dessert', 'Rich chocolate layers with ganache drizzle and fresh strawberries on top.')">
+      <img src="img 9.jpg" alt="Dessert" class="rstrip-img"/>
+      <div class="rstrip-body">
+        <div class="rstrip-cat">Dessert</div>
+        <div class="rstrip-name">Chocolate Cake</div>
+        <div class="rstrip-desc">Rich chocolate layers with ganache drizzle and fresh strawberries on top.</div>
+      </div>
+    </div>
+
+    <div class="rstrip-card" data-category="Quick Meals" onclick="openModal('img 4.jpg', 'Chicken Teriyaki Bowl', 'Quick Meals', 'Fast, flavourful meals ready in under 30 minutes for busy weeknights.')">
+      <img src="img 4.jpg" alt="Quick Meals" class="rstrip-img"/>
+      <div class="rstrip-body">
+        <div class="rstrip-cat">Quick Meals</div>
+        <div class="rstrip-name">Chicken Teriyaki Bowl</div>
+        <div class="rstrip-desc">Fast, flavourful meals ready in under 30 minutes for busy weeknights.</div>
+      </div>
+    </div>
+
+    <div class="rstrip-card" data-category="Main Dish" onclick="openModal('img 11.png', 'Classic Lasagna', 'Main Dish', 'Layers of pasta, rich meat sauce, and melted cheese baked to golden perfection.')">
+    <img src="img 11.png" alt="Classic Lasagna" class="rstrip-img"/>
+    <div class="rstrip-body">
+      <div class="rstrip-cat">Main Dish</div>
+      <div class="rstrip-name">Classic Lasagna</div>
+      <div class="rstrip-desc">Layers of pasta, rich meat sauce, and melted cheese baked to golden perfection.</div>
+    </div>
+  </div>
+
+  <div class="rstrip-card" data-category="Quick Meals" onclick="openModal('img 12.jpg', 'Honey Sesame Chicken', 'Quick Meals', 'Crispy chicken glazed in sweet honey sesame sauce served over fluffy steamed rice.')">
+    <img src="img 12.jpg" alt="Honey Sesame Chicken" class="rstrip-img"/>
+    <div class="rstrip-body">
+      <div class="rstrip-cat">Quick Meals</div>
+      <div class="rstrip-name">Honey Sesame Chicken</div>
+      <div class="rstrip-desc">Crispy chicken glazed in sweet honey sesame sauce served over fluffy steamed rice.</div>
+    </div>
+  </div>
+
+  <div class="rstrip-card" data-category="Main Dish" onclick="openModal('img 13.png', 'Beef Stir Fry', 'Main Dish', 'Tender beef strips with broccoli and peppers tossed in a rich savory stir fry sauce.')">
+    <img src="img 13.png" alt="Beef Stir Fry" class="rstrip-img"/>
+    <div class="rstrip-body">
+      <div class="rstrip-cat">Main Dish</div>
+      <div class="rstrip-name">Beef Stir Fry</div>
+      <div class="rstrip-desc">Tender beef strips with broccoli and peppers tossed in a rich savory stir fry sauce.</div>
+    </div>
+  </div>
+
+  <div class="rstrip-card" data-category="Lunch" onclick="openModal('img 14.jpg', 'Teriyaki Chicken Bowl', 'Lunch', 'Juicy grilled teriyaki chicken with sesame seeds served alongside fresh crisp salad.')">
+    <img src="img 14.jpg" alt="Teriyaki Chicken Bowl" class="rstrip-img"/>
+    <div class="rstrip-body">
+      <div class="rstrip-cat">Lunch</div>
+      <div class="rstrip-name">Teriyaki Chicken Bowl</div>
+      <div class="rstrip-desc">Juicy grilled teriyaki chicken with sesame seeds served alongside fresh crisp salad.</div>
+    </div>
+  </div>
+
+  <div class="rstrip-card" data-category="Dinner" onclick="openModal('img 15.jpg', 'Glazed Salmon', 'Dinner', 'Pan-seared salmon fillets glazed with soy and sesame topped with fresh green onions.')">
+    <img src="img 15.jpg" alt="Glazed Salmon" class="rstrip-img"/>
+    <div class="rstrip-body">
+      <div class="rstrip-cat">Dinner</div>
+      <div class="rstrip-name">Glazed Salmon</div>
+      <div class="rstrip-desc">Pan-seared salmon fillets glazed with soy and sesame topped with fresh green onions.</div>
+    </div>
+  </div>
+
+  <div class="rstrip-card" data-category="Quick Meals" onclick="openModal('img 16.jpg', 'Wok Stir Fry', 'Quick Meals', 'High-heat wok cooking with fresh chicken, colourful vegetables and bold Asian flavours.')">
+    <img src="img 16.jpg" alt="Wok Stir Fry" class="rstrip-img"/>
+    <div class="rstrip-body">
+      <div class="rstrip-cat">Quick Meals</div>
+      <div class="rstrip-name">Wok Stir Fry</div>
+      <div class="rstrip-desc">High-heat wok cooking with fresh chicken, colourful vegetables and bold Asian flavours.</div>
+    </div>
+  </div>
+
+  <div class="rstrip-card" data-category="Dinner" onclick="openModal('img 17.jpg', 'Sausage Pasta', 'Dinner', 'Penne pasta tossed with juicy sausage slices, spinach and rich tomato sauce.')">
+    <img src="img 17.jpg" alt="Sausage Pasta" class="rstrip-img"/>
+    <div class="rstrip-body">
+      <div class="rstrip-cat">Dinner</div>
+      <div class="rstrip-name">Sausage Pasta</div>
+      <div class="rstrip-desc">Penne pasta tossed with juicy sausage slices, spinach and rich tomato sauce.</div>
+    </div>
+  </div>
+
+  <div class="rstrip-card" data-category="Dessert" onclick="openModal('img 18.jpg', 'Ice Cream Sundae', 'Dessert', 'Scoops of chocolate and vanilla ice cream drizzled with rich sauce and berry coulis.')">
+    <img src="img 18.jpg" alt="Ice Cream Sundae" class="rstrip-img"/>
+    <div class="rstrip-body">
+      <div class="rstrip-cat">Dessert</div>
+      <div class="rstrip-name">Ice Cream Sundae</div>
+      <div class="rstrip-desc">Scoops of chocolate and vanilla ice cream drizzled with rich sauce and berry coulis.</div>
+    </div>
+  </div>
+
+  <div class="rstrip-card" data-category="Snack" onclick="openModal('img 19.jpg', 'Gourmet Burger', 'Snack', 'Juicy beef patty with fresh lettuce, tomato, mozzarella and basil on a toasted bun.')">
+    <img src="img 19.jpg" alt="Gourmet Burger" class="rstrip-img"/>
+    <div class="rstrip-body">
+      <div class="rstrip-cat">Snack</div>
+      <div class="rstrip-name">Gourmet Burger</div>
+      <div class="rstrip-desc">Juicy beef patty with fresh lettuce, tomato, mozzarella and basil on a toasted bun.</div>
+    </div>
+  </div>
+
+  <div class="rstrip-card" data-category="Dinner" onclick="openModal('img 20.jpeg', 'Chicken Parmesan', 'Dinner', 'Crispy breaded chicken breast topped with marinara sauce and melted mozzarella over spaghetti.')">
+    <img src="img 20.jpeg" alt="Chicken Parmesan" class="rstrip-img"/>
+    <div class="rstrip-body">
+      <div class="rstrip-cat">Dinner</div>
+      <div class="rstrip-name">Chicken Parmesan</div>
+      <div class="rstrip-desc">Crispy breaded chicken breast topped with marinara sauce and melted mozzarella over spaghetti.</div>
+    </div>
+  </div>
+
+  <div class="rstrip-card" data-category="Main Dish" onclick="openModal('img 21.jpeg', 'Pepperoni Pizza', 'Main Dish', 'Classic pepperoni pizza with stretchy melted cheese pulled fresh from a stone-baked oven.')">
+    <img src="img 21.jpeg" alt="Pepperoni Pizza" class="rstrip-img"/>
+    <div class="rstrip-body">
+      <div class="rstrip-cat">Main Dish</div>
+      <div class="rstrip-name">Pepperoni Pizza</div>
+      <div class="rstrip-desc">Classic pepperoni pizza with stretchy melted cheese pulled fresh from a stone-baked oven.</div>
+    </div>
+  </div>
+
+  <div class="rstrip-card" data-category="Dinner" onclick="openModal('img 22.jpg', 'Spaghetti Carbonara', 'Dinner', 'Creamy spaghetti with sausage slices and freshly grated parmesan cheese on top.')">
+    <img src="img 22.jpg" alt="Spaghetti Carbonara" class="rstrip-img"/>
+    <div class="rstrip-body">
+      <div class="rstrip-cat">Dinner</div>
+      <div class="rstrip-name">Spaghetti Carbonara</div>
+      <div class="rstrip-desc">Creamy spaghetti with sausage slices and freshly grated parmesan cheese on top.</div>
+    </div>
+  </div>
+
+  <div class="rstrip-card" data-category="Dessert" onclick="openModal('img 23.jpg', 'Chocolate Mousse Cake', 'Dessert', 'Decadent layered chocolate mousse cake dusted with cocoa and topped with dark chocolate shards.')">
+    <img src="img 23.jpg" alt="Chocolate Mousse Cake" class="rstrip-img"/>
+    <div class="rstrip-body">
+      <div class="rstrip-cat">Dessert</div>
+      <div class="rstrip-name">Chocolate Mousse Cake</div>
+      <div class="rstrip-desc">Decadent layered chocolate mousse cake dusted with cocoa and topped with dark chocolate shards.</div>
+    </div>
+  </div>
+
+  <div class="rstrip-card" data-category="Lunch" onclick="openModal('img 24.jpg', 'Chilli Paneer Rice', 'Lunch', 'Spicy chilli paneer cubes in rich tomato gravy served alongside flavourful vegetable fried rice.')">
+    <img src="img 24.jpg" alt="Chilli Paneer Rice" class="rstrip-img"/>
+    <div class="rstrip-body">
+      <div class="rstrip-cat">Lunch</div>
+      <div class="rstrip-name">Chilli Paneer Rice</div>
+      <div class="rstrip-desc">Spicy chilli paneer cubes in rich tomato gravy served alongside flavourful vegetable fried rice.</div>
+    </div>
+  </div>
+
+  <div class="rstrip-card" data-category="Lunch" onclick="openModal('img 25.jpg', 'Caesar Salad', 'Lunch', 'Crisp romaine lettuce with parmesan, croutons, bacon and creamy caesar dressing with flatbread.')">
+    <img src="img 25.jpg" alt="Caesar Salad" class="rstrip-img"/>
+    <div class="rstrip-body">
+      <div class="rstrip-cat">Lunch</div>
+      <div class="rstrip-name">Caesar Salad</div>
+      <div class="rstrip-desc">Crisp romaine lettuce with parmesan, croutons, bacon and creamy caesar dressing with flatbread.</div>
+    </div>
+  </div>
+
+  <div class="rstrip-card" data-category="Snack" onclick="openModal('img 26.jpg', 'Charcuterie Board', 'Snack', 'Elegant spread of figs, grapes, eggs, cheese, prosciutto, olives and almonds on a platter.')">
+    <img src="img 26.jpg" alt="Charcuterie Board" class="rstrip-img"/>
+    <div class="rstrip-body">
+      <div class="rstrip-cat">Snack</div>
+      <div class="rstrip-name">Charcuterie Board</div>
+      <div class="rstrip-desc">Elegant spread of figs, grapes, eggs, cheese, prosciutto, olives and almonds on a platter.</div>
+    </div>
+  </div>
+
+  <div class="rstrip-card" data-category="Dessert" onclick="openModal('img 27.png', 'Festive Nougat', 'Dessert', 'Creamy nougat rounds with figs, strawberries and raspberries served on a festive holiday platter.')">
+    <img src="img 27.png" alt="Festive Nougat" class="rstrip-img"/>
+    <div class="rstrip-body">
+      <div class="rstrip-cat">Dessert</div>
+      <div class="rstrip-name">Festive Nougat</div>
+      <div class="rstrip-desc">Creamy nougat rounds with figs, strawberries and raspberries served on a festive holiday platter.</div>
+    </div>
+  </div>
+
+<!-- Card 4 — Cheesy Pull Pizza -->
+  <div class="rstrip-card" data-category="Lunch" onclick="openModal('img 2.png','Cheesy Pull Pizza','Lunch','Irresistibly cheesy pepperoni pizza with a perfectly golden crust and stretchy mozzarella pull.')">
+    <img src="img 2.png" alt="Cheesy Pull Pizza" class="rstrip-img"/>
+    <div class="rstrip-body">
+      <div class="rstrip-cat">Lunch</div>
+      <div class="rstrip-name">Cheesy Pull Pizza</div>
+      <div class="rstrip-desc">Irresistibly cheesy pepperoni pizza with a perfectly golden crust and stretchy mozzarella pull.</div>
+    </div>
+  </div>
+
+  <!-- Card 5 — Grilled Chicken Salad -->
+  <div class="rstrip-card" data-category="Lunch" onclick="openModal('img 3.jpeg','Grilled Chicken Salad','Lunch','Sesame-crusted grilled chicken over crisp cabbage slaw with shredded carrots and fresh spinach.')">
+    <img src="img 3.jpeg" alt="Grilled Chicken Salad" class="rstrip-img"/>
+    <div class="rstrip-body">
+      <div class="rstrip-cat">Lunch</div>
+      <div class="rstrip-name">Grilled Chicken Salad</div>
+      <div class="rstrip-desc">Sesame-crusted grilled chicken over crisp cabbage slaw with shredded carrots and fresh spinach.</div>
+    </div>
+  </div>
+
+  <!-- Card 6 — Antipasto Spread -->
+ <div class="rstrip-card" data-category="Snack"onclick="openModal('img 5.webp','Antipasto Spread','Snack','A vibrant spread of bruschetta, olives, cured meats, and refreshing gin cocktails for entertaining.')">
+    <img src="img 5.webp" alt="Antipasto Spread" class="rstrip-img"/>
+    <div class="rstrip-body">
+      <div class="rstrip-cat">Snack</div>
+      <div class="rstrip-name">Antipasto Spread</div>
+      <div class="rstrip-desc">A vibrant spread of bruschetta, olives, cured meats, and refreshing gin cocktails for entertaining.</div>
+    </div>
+  </div>
+
+  <!-- Card 7 — Shakshuka -->
+  <div class="rstrip-card" data-category="Breakfast" onclick="openModal('img 6.jpg','Shakshuka','Breakfast','Poached eggs in a rich spiced tomato sauce with fresh basil, cherry tomatoes, and crusty bread.')">
+    <img src="img 6.jpg" alt="Shakshuka" class="rstrip-img"/>
+    <div class="rstrip-body">
+      <div class="rstrip-cat">Breakfast</div>
+      <div class="rstrip-name">Shakshuka</div>
+      <div class="rstrip-desc">Poached eggs in a rich spiced tomato sauce with fresh basil, cherry tomatoes, and crusty bread.</div>
+    </div>
+  </div>
+
+<!-- ── NEW CARDS: img_28 to img_36 ── -->
+
+<!-- img_28.jpg — Strawberry Velvet Cake — Dessert -->
+<div class="rstrip-card" data-category="Dessert"
+  onclick="openModal('img 28.jpg','Strawberry Velvet Cake','Dessert','Luscious red velvet layers with cream cheese frosting, fresh strawberries and a glossy berry glaze.')">
+  <img src="img 28.jpg" alt="Strawberry Velvet Cake" class="rstrip-img"/>
+  <div class="rstrip-body">
+    <div class="rstrip-cat">Dessert</div>
+    <div class="rstrip-name">Strawberry Velvet Cake</div>
+    <div class="rstrip-desc">Luscious red velvet layers with cream cheese frosting, fresh strawberries and a glossy berry glaze.</div>
+  </div>
+</div>
+
+<!-- img_29.png — Lavender Honey Panna Cotta — Dessert -->
+<div class="rstrip-card" data-category="Beverage"
+  onclick="openModal('img 29.png','Lavender Honey Panna Cotta','Dessert','Silky lavender-infused panna cotta drizzled with honey and crowned with edible viola flowers.')">
+  <img src="img 29.png" alt="Lavender Honey Panna Cotta" class="rstrip-img"/>
+  <div class="rstrip-body">
+    <div class="rstrip-cat">Beverage</div>
+    <div class="rstrip-name">Lavender Honey Panna Cotta</div>
+    <div class="rstrip-desc">Silky lavender-infused panna cotta drizzled with honey and crowned with edible viola flowers.</div>
+  </div>
+</div>
+
+<!-- img_30.jpg — Mango Cream Slushy — Beverage -->
+<div class="rstrip-card" data-category="Beverage"
+  onclick="openModal('img 30.jpg','Mango Cream Slushy','Beverage','Fresh mango cubes blended with cream and crushed ice, layered with whipped cream and syrup drizzle.')">
+  <img src="img 30.jpg" alt="Mango Cream Slushy" class="rstrip-img"/>
+  <div class="rstrip-body">
+    <div class="rstrip-cat">Beverage</div>
+    <div class="rstrip-name">Mango Cream Slushy</div>
+    <div class="rstrip-desc">Fresh mango cubes blended with cream and crushed ice, layered with whipped cream and syrup drizzle.</div>
+  </div>
+</div>
+
+<!-- img_31.jpg — Classic Ice Cream Sundae — Dessert -->
+<div class="rstrip-card" data-category="Dessert"
+  onclick="openModal('img 31.jpg','Classic Ice Cream Sundae','Dessert','Towering chocolate and vanilla scoops drizzled with hot fudge and topped with swirls of cream.')">
+  <img src="img 31.jpg" alt="Classic Ice Cream Sundae" class="rstrip-img"/>
+  <div class="rstrip-body">
+    <div class="rstrip-cat">Dessert</div>
+    <div class="rstrip-name">Classic Ice Cream Sundae</div>
+    <div class="rstrip-desc">Towering chocolate and vanilla scoops drizzled with hot fudge and topped with swirls of cream.</div>
+  </div>
+</div>
+
+<!-- img_32.jpg — Tropical Mango Smoothie — Beverage -->
+<div class="rstrip-card" data-category="Beverage"
+  onclick="openModal('img 32.jpg','Tropical Mango Smoothie','Beverage','Vibrant mango and passion fruit blended with coconut water and honey, served tall over ice.')">
+  <img src="img 32.jpg" alt="Tropical Mango Smoothie" class="rstrip-img"/>
+  <div class="rstrip-body">
+    <div class="rstrip-cat">Beverage</div>
+    <div class="rstrip-name">Tropical Mango Smoothie</div>
+    <div class="rstrip-desc">Vibrant mango and passion fruit blended with coconut water and honey, served tall over ice.</div>
+  </div>
+</div>
+
+<!-- img_33.jpg — Teriyaki Chicken Wok — Quick Meals -->
+<div class="rstrip-card" data-category="Quick Meals"
+  onclick="openModal('img 33.jpg','Teriyaki Chicken Wok','Quick Meals','Saucy teriyaki chicken with shredded cabbage, carrots and peppers over steamed rice — done in minutes.')">
+  <img src="img 33.jpg" alt="Teriyaki Chicken Wok" class="rstrip-img"/>
+  <div class="rstrip-body">
+    <div class="rstrip-cat">Quick Meals</div>
+    <div class="rstrip-name">Teriyaki Chicken Wok</div>
+    <div class="rstrip-desc">Saucy teriyaki chicken with shredded cabbage, carrots and peppers over steamed rice — done in minutes.</div>
+  </div>
+</div>
+
+<!-- img_34.jpeg — Sushi Platter — Dinner -->
+<div class="rstrip-card" data-category="Dinner"
+  onclick="openModal('img 34.jpeg','Sushi Platter','Dinner','Artful arrangement of salmon, tuna and white fish nigiri with eel sushi, soy sauce and wasabi.')">
+  <img src="img 34.jpeg" alt="Sushi Platter" class="rstrip-img"/>
+  <div class="rstrip-body">
+    <div class="rstrip-cat">Dinner</div>
+    <div class="rstrip-name">Sushi Platter</div>
+    <div class="rstrip-desc">Artful arrangement of salmon, tuna and white fish nigiri with eel sushi, soy sauce and wasabi.</div>
+  </div>
+</div>
+
+<!-- img_35.jpg — Grilled Chicken Wrap — Lunch -->
+<div class="rstrip-card" data-category="Lunch"
+  onclick="openModal('img 35.jpg','Grilled Chicken Wrap','Lunch','Charred spiced chicken with crisp lettuce, tomato, red onion and chipotle mayo in a grilled flour tortilla.')">
+  <img src="img 35.jpg" alt="Grilled Chicken Wrap" class="rstrip-img"/>
+  <div class="rstrip-body">
+    <div class="rstrip-cat">Lunch</div>
+    <div class="rstrip-name">Grilled Chicken Wrap</div>
+    <div class="rstrip-desc">Charred spiced chicken with crisp lettuce, tomato, red onion and chipotle mayo in a grilled flour tortilla.</div>
+  </div>
+</div>
+
+<!-- img_36.jpg — BBQ Pork Ribs — Main Dish -->
+<div class="rstrip-card" data-category="Main Dish"
+  onclick="openModal('img 36.jpg','BBQ Pork Ribs','Main Dish','Fall-off-the-bone pork ribs slathered in smoky BBQ sauce with a caramelised brown sugar crust.')">
+  <img src="img 36.jpg" alt="BBQ Pork Ribs" class="rstrip-img"/>
+  <div class="rstrip-body">
+    <div class="rstrip-cat">Main Dish</div>
+    <div class="rstrip-name">BBQ Pork Ribs</div>
+    <div class="rstrip-desc">Fall-off-the-bone pork ribs slathered in smoky BBQ sauce with a caramelised brown sugar crust.</div>
+  </div>
+</div>
+
+<!-- img 37 — Garden BBQ Skewers — Dinner -->
+<div class="rstrip-card" data-category="Dinner"
+  onclick="openModal('img 37.png','Garden BBQ Skewers','Dinner','Smoky marinated skewers of beef, peppers, tomatoes and zucchini grilled over open charcoal flames.')">
+  <img src="img 37.png" alt="Garden BBQ Skewers" class="rstrip-img"/>
+  <div class="rstrip-body">
+    <div class="rstrip-cat">Dinner</div>
+    <div class="rstrip-name">Garden BBQ Skewers</div>
+    <div class="rstrip-desc">Smoky marinated skewers of beef, peppers, tomatoes and zucchini grilled over open charcoal flames.</div>
+  </div>
+</div>
+
+<!-- img 38 — Strawberry Boba Splash — Beverage -->
+<div class="rstrip-card" data-category="Beverage"
+  onclick="openModal('img 38.jpg','Strawberry Boba Splash','Beverage','Refreshing strawberry milk boba loaded with tapioca pearls, jelly cubes and a cascade of fresh berries.')">
+  <img src="img 38.jpg" alt="Strawberry Boba Splash" class="rstrip-img"/>
+  <div class="rstrip-body">
+    <div class="rstrip-cat">Beverage</div>
+    <div class="rstrip-name">Strawberry Boba Splash</div>
+    <div class="rstrip-desc">Refreshing strawberry milk boba loaded with tapioca pearls, jelly cubes and a cascade of fresh berries.</div>
+  </div>
+</div>
+
+<!-- img 39 — Berry Apple Smoothie — Beverage -->
+<div class="rstrip-card" data-category="Beverage"
+  onclick="openModal('img 39.jpg','Berry Apple Smoothie','Beverage','Deep crimson blend of fresh raspberries and red apple with beetroot juice and almond milk.')">
+  <img src="img 39.jpg" alt="Berry Apple Smoothie" class="rstrip-img"/>
+  <div class="rstrip-body">
+    <div class="rstrip-cat">Beverage</div>
+    <div class="rstrip-name">Berry Apple Smoothie</div>
+    <div class="rstrip-desc">Deep crimson blend of fresh raspberries and red apple with beetroot juice and almond milk.</div>
+  </div>
+</div>
+
+  </div>
+</section>
+
+<!-- ── IMAGE MODAL ── -->
+<div id="d-modal" class="d-modal-overlay hidden" onclick="closeModal()">
+  <div class="d-modal-inner" onclick="event.stopPropagation()">
+    <button class="d-modal-close" onclick="closeModal()">✕</button>
+    <img id="d-modal-img" src="" alt="Preview"/>
+  </div>
+</div>
+
+<!-- ── FOOTER ── -->
+ <!-- ══════════════════════════════════════
+     CONTACT SECTION
+══════════════════════════════════════ -->
+<section id="discover-contact">
+
+  <div class="dc-blob"></div>
+
+  <div class="dc-label">Contact Us</div>
+  <p class="dc-subtitle">Have questions or want to connect? Reach out to our team.</p>
+
+  <div class="dc-grid">
+
+    <!-- Abdullah Khan -->
+    <div class="dc-card" onclick="openMemberModal('abdullah')" style="cursor:pointer;">
+      <div class="dc-avatar">
+        <img src="img 7.jpeg" alt="Abdullah Khan"/>
+      </div>
+      <div class="dc-name">Abdullah Khan</div>
+      <div class="dc-role">Team Leader</div>
+      <div class="dc-divider"></div>
+      <a href="https://www.linkedin.com/in/muhammad-abdullah-khan-34b156402" target="_blank" class="dc-link">
+        <span class="dc-link-icon">💼</span><span>LinkedIn Profile</span>
+      </a>
+      <a href="tel:03192096617" class="dc-link">
+        <span class="dc-link-icon">📞</span><span>03192096617</span>
+      </a>
+    </div>
+
+    <!-- Abdul Hannan Shaikh -->
+    <div class="dc-card" onclick="openMemberModal('hannan')" style="cursor:pointer;">
+      <div class="dc-avatar">
+        <img src="img 10.jpeg" alt="Abdul Hannan Shaikh"/>
+      </div>
+      <div class="dc-name">Abdul Hannan Shaikh</div>
+      <div class="dc-role">Team Member</div>
+      <div class="dc-divider"></div>
+      <a href="https://www.linkedin.com/in/abdul-hannan-shaikh-2727b630b" target="_blank" class="dc-link">
+        <span class="dc-link-icon">💼</span><span>LinkedIn Profile</span>
+      </a>
+      <a href="tel:03340638457" class="dc-link">
+        <span class="dc-link-icon">📞</span><span>0334 0638457</span>
+      </a>
+    </div>
+
+    <!-- Bilal Faheem -->
+    <div class="dc-card" onclick="openMemberModal('bilal')" style="cursor:pointer;">
+      <div class="dc-avatar">
+        <img src="img 8.png" alt="Bilal Faheem"/>
+      </div>
+      <div class="dc-name">Bilal Faheem</div>
+      <div class="dc-role">Team Member</div>
+      <div class="dc-divider"></div>
+      <a href="https://www.linkedin.com/in/muhammad-bilal-b74398377" target="_blank" class="dc-link">
+        <span class="dc-link-icon">💼</span><span>LinkedIn Profile</span>
+      </a>
+      <a href="tel:03052691363" class="dc-link">
+        <span class="dc-link-icon">📞</span><span>03052691363</span>
+      </a>
+    </div>
+
+  </div>
+</section>
+<footer>
+  <div style="font-family:'Syne',sans-serif;color:#333;font-weight:700;">🍃 RecipeOrg</div>
+  <div>© 2025 Recipe Organiser. All rights reserved.</div>
+</footer>
+
+<!-- ── Member Modal ── -->
+<div id="member-modal" class="mm-overlay hidden" onclick="closeMemberModal()">
+  <div class="mm-box" onclick="event.stopPropagation()">
+    <button class="mm-close" onclick="closeMemberModal()">✕</button>
+
+    <div class="mm-layout">
+      <!-- Left: photo -->
+      <div class="mm-photo-wrap">
+        <img id="mm-photo" src="" alt=""/>
+      </div>
+
+      <!-- Right: info -->
+      <div class="mm-info">
+        <div id="mm-name"  class="mm-name"></div>
+        <div id="mm-role"  class="mm-role"></div>
+        <div class="mm-divider"></div>
+        <div id="mm-links" class="mm-links"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="discover.js"></script>
+
+</body>
+</html>
