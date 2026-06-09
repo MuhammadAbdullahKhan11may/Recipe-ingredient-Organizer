@@ -919,3 +919,12 @@ function closeMemberModal() {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeMemberModal();
 });
+
+// ── Inject category dot into every card (mobile overlay indicator) ──
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.rstrip-card').forEach(card => {
+    const dot = document.createElement('span');
+    dot.className = 'rstrip-cat-dot';
+    card.prepend(dot);
+  });
+});
