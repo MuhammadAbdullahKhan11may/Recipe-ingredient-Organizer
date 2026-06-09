@@ -371,12 +371,20 @@
   <div class="recipe-layout">
 
     <div class="sidebar">
-      <button class="sidebar-btn active" onclick="showPanel('list', this)"><span class="icon">📋</span> All Recipes</button>
-      <button class="sidebar-btn" onclick="showPanel('add', this)"><span class="icon">➕</span> Add Recipe</button>
-      <button class="sidebar-btn" onclick="showPanel('union', this)"><span class="icon">∪</span> Total Ingredients</button>
-      <button class="sidebar-btn" onclick="showPanel('intersection', this)"><span class="icon">∩</span> Common Ingredients</button>
-      <button class="sidebar-btn" onclick="showPanel('search', this)"><span class="icon">🔍</span> Search Recipe</button>
-      <button class="sidebar-btn" onclick="showPanel('delete', this)"><span class="icon">🗑️</span> Delete Recipe</button>
+<div class="sidebar">
+  <button class="sidebar-btn active" onclick="showPanel('list', this)"><span class="icon">📋</span> All Recipes</button>
+  <button class="sidebar-btn" onclick="showPanel('add', this)"><span class="icon">➕</span> Add Recipe</button>
+  <button class="sidebar-btn" onclick="showPanel('union', this)"><span class="icon">∪</span> Total Ingredients</button>
+  <button class="sidebar-btn" onclick="showPanel('intersection', this)"><span class="icon">∩</span> Common Ingredients</button>
+  <button class="sidebar-btn" onclick="showPanel('search', this)"><span class="icon">🔍</span> Search Recipe</button>
+  <button class="sidebar-btn" onclick="showPanel('delete', this)"><span class="icon">🗑️</span> Delete Recipe</button>
+  <button class="sidebar-btn" onclick="showPanel('editIng', this)"><span class="icon">✂️</span> Remove Ingredient</button>
+  <button class="sidebar-btn" onclick="showPanel('mealplanner', this)"><span class="icon">📅</span> Plan Meals</button>
+  <button class="sidebar-btn sidebar-btn-save" onclick="saveToJSON()"><span class="icon">💾</span> Save Recipes</button>
+  <button class="sidebar-btn sidebar-btn-undo" onclick="undoDelete()"><span class="icon">↩️</span> Undo Delete</button>
+  <input type="file" id="fileInput" accept=".json" class="hidden" onchange="loadFromJSON(event)"/>
+  <button class="sidebar-btn" onclick="document.getElementById('fileInput').click()"><span class="icon">📂</span> Load Recipes</button>
+</div>
 
       
 <button class="sidebar-btn" onclick="showPanel('mealplanner', this)"><span class="icon">📅</span> Plan Meals</button>
@@ -466,6 +474,19 @@
         <button class="btn btn-red" onclick="deleteSelected()">Delete</button>
         <p style="color:#666;font-size:0.82rem;margin-top:0.75rem;">Use ↩️ Undo Delete in sidebar to restore.</p>
       </div>
+
+<div id="panel-editIng" class="hidden">
+  <div class="panel-title">✂️ Remove Ingredient</div>
+  <div class="form-group">
+    <label class="form-label">Select Recipe</label>
+    <select id="editIng-recipe-select" class="form-select" onchange="loadIngForEdit()"></select>
+  </div>
+  <div id="editIng-tag-area" class="tag-list" style="margin-top:0.8rem;min-height:48px;"></div>
+  <p id="editIng-hint" style="color:#555;font-size:0.82rem;margin-top:0.75rem;">
+    Click ✕ on any ingredient tag to remove it from the recipe.
+  </p>
+</div>
+      
 <div id="panel-mealplanner" class="hidden">
   <div class="panel-title">📅 Meal Planner — 2026</div>
 
