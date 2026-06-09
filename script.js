@@ -1132,3 +1132,151 @@ function closeFeatureModal() {
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeFeatureModal();
 });
+
+// ══════════════════════════════════════
+//  SAVE TO JSON  (browser download)
+// ══════════════════════════════════════
+function saveToJSON() {
+  if (!recipes.length) { showToast('No recipes to save!', true); return; }
+
+  const data = recipes.map(r => ({
+    name:        r.name,
+    category:    r.category,
+    ingredients: r.ingredients   // [{name, qty}]
+  }));
+
+  const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = 'recipes.json';
+  a.click();
+  URL.revokeObjectURL(url);
+
+  showToast(`Saved ${recipes.length} recipe(s) as recipes.json ✓`);
+}
+
+// ══════════════════════════════════════
+//  LOAD FROM JSON  (file input)
+// ══════════════════════════════════════
+function loadFromJSON(event) {
+  const file = event.target.files[0];
+  if (!file) return;
+
+  const reader = new FileReader();
+  reader.onload = function(e) {
+    try {
+      const data = JSON.parse(e.target.result);
+      if (!Array.isArray(data)) throw new Error('Invalid format');
+
+      // Clear existing
+      while (recipeList.size > 0) recipeList.removeAt(0);
+
+      data.forEach(d => {
+        const recipe = {
+          name:        d.name        || 'Unnamed',
+          category:    d.category    || 'Other',
+          ingredients: Array.isArray(d.ingredients)
+            ? d.ingredients.map(i =>
+                typeof i === 'string'
+                  ? { name: i, qty: '' }
+                  : { name: i.name || '', qty: i.qty || '' }
+              )
+            : []
+        };
+        recipeList.append(recipe);
+        recentQueue.enqueue(recipe);
+      });
+
+      syncMirror();
+      renderList();
+      showToast(`Loaded ${recipes.length} recipe(s) ✓`);
+    } catch (err) {
+      showToast('Failed to load file — invalid JSON', true);
+    }
+    // Reset input so same file can be reloaded
+    event.target.value = '';
+  };
+  reader.readAsText(file);
+}
+
+// ══════════════════════════════════════
+//  UNDO DELETE  (Stack pop)
+// ══════════════════════════════════════
+function undoDelete() {
+  if (deleteStack.isEmpty()) { showToast('Nothing to undo!', true); return; }
+
+  const r = deleteStack.pop();           // DSA: Stack pop
+  recipeList.append(r);                  // DSA: Linked List append
+  syncMirror();
+  renderList();
+  showToast(`'${r.name}' restored! ✓`);
+
+  // Refresh delete dropdown if visible
+  const delPanel = document.getElementById('panel-delete');
+  if (delPanel && !delPanel.classList.contains('hidden')) populateSelects();
+}
+
+// ══════════════════════════════════════
+//  REMOVE INGREDIENT FROM RECIPE
+// ══════════════════════════════════════
+
+// Populate recipe select when "Remove Ingredient" panel opens
+function loadIngForEdit() {
+  const sel = document.getElementById('editIng-recipe-select');
+  const idx = +sel.value;
+  renderIngTags(idx);
+}
+
+function renderIngTags(recipeIdx) {
+  const area = document.getElementById('editIng-tag-area');
+  const r    = recipes[recipeIdx];
+  if (!r) { area.innerHTML = ''; return; }
+
+  if (!r.ingredients.length) {
+    area.innerHTML = '<span style="color:#555;font-size:0.85rem;">No ingredients in this recipe.</span>';
+    return;
+  }
+
+  area.innerHTML = r.ingredients.map((ing, i) => `
+    <span class="tag" style="font-size:0.88rem;padding:0.35rem 0.75rem;">
+      ${ing.name}${ing.qty ? `<em style="opacity:0.65;font-style:normal"> — ${ing.qty}</em>` : ''}
+      <span class="tag-remove" onclick="removeIngFromRecipe(${recipeIdx}, ${i})" title="Remove">✕</span>
+    </span>
+  `).join('');
+}
+
+function removeIngFromRecipe(recipeIdx, ingIdx) {
+  const r = recipes[recipeIdx];
+  if (!r) return;
+
+  const removed = r.ingredients.splice(ingIdx, 1)[0];
+  // Sync back into linked list node (recipes[] is a reference mirror)
+  syncMirror();
+  renderIngTags(recipeIdx);
+  showToast(`'${removed.name}' removed from '${r.name}' ✓`);
+}
+
+// Patch showPanel to populate editIng select on open
+const _baseShowPanel = showPanel;
+showPanel = function(id, btn) {
+  // Call original
+  document.querySelectorAll('.main-panel > div').forEach(d => d.classList.add('hidden'));
+  document.getElementById('panel-' + id).classList.remove('hidden');
+  document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
+  if (btn) btn.classList.add('active');
+
+  if (id === 'list')             renderList();
+  if (id === 'recent')           renderRecent();
+  if (['union','intersection','delete'].includes(id)) populateSelects();
+
+  if (id === 'editIng') {
+    const sel = document.getElementById('editIng-recipe-select');
+    sel.innerHTML = recipes.map((r, i) =>
+      `<option value="${i}">${r.name} [${r.category || 'Other'}]</option>`
+    ).join('');
+    if (recipes.length) renderIngTags(0);
+    else document.getElementById('editIng-tag-area').innerHTML =
+      '<span style="color:#555;font-size:0.85rem;">No recipes yet.</span>';
+  }
+};
