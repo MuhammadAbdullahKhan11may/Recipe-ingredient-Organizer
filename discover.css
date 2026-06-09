@@ -965,3 +965,121 @@
   .mm-link { font-size: 0.83rem; }
   .mm-link:hover { transform: none; }
 }
+
+/* ── MOBILE GALLERY GRID (≤ 600px) ── */
+@media (max-width: 600px) {
+
+  /* 3-column tight grid */
+  .recipe-strip-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    padding: 0;
+  }
+
+  /* Card: image-only tile */
+  .rstrip-card {
+    border-radius: 10px;
+    border: none;
+    background: #000;
+    overflow: hidden;
+    position: relative;
+  }
+
+  /* Square aspect ratio via padding trick */
+  .rstrip-card::before {
+    content: '';
+    display: block;
+    padding-top: 100%;
+  }
+
+  /* Image fills the square absolutely */
+  .rstrip-img {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.25s ease;
+  }
+
+  /* Hide all text in grid view */
+  .rstrip-body {
+    display: none;
+  }
+
+  /* Subtle category dot overlay (top-left) */
+  .rstrip-card .rstrip-cat-dot {
+    display: block;
+    position: absolute;
+    top: 6px; left: 6px;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #22c55e;
+    box-shadow: 0 0 6px rgba(34,197,94,0.8);
+    z-index: 2;
+  }
+
+  /* Tap feedback */
+  .rstrip-card:active .rstrip-img {
+    transform: scale(0.96);
+  }
+
+  /* Remove hover lift on mobile */
+  .rstrip-card:hover {
+    transform: none;
+    border-color: transparent;
+    box-shadow: none;
+  }
+
+  /* Tighten section padding */
+  #recipe-strip {
+    padding: 3rem 0.75rem 3.5rem;
+  }
+
+  /* Filter bar: horizontal scroll, no wrap */
+  .filter-bar {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 0.5rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    gap: 0.4rem;
+    margin-bottom: 1.2rem;
+  }
+  .filter-bar::-webkit-scrollbar { display: none; }
+
+  .filter-btn {
+    flex-shrink: 0;
+    font-size: 0.74rem;
+    padding: 0.4rem 0.85rem;
+    white-space: nowrap;
+  }
+
+  /* Modal: full-screen feel on mobile */
+  .d-modal-overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .d-modal-inner {
+    border-radius: 20px 20px 0 0;
+    max-width: 100%;
+    max-height: 90vh;
+    width: 100%;
+    animation: slideUpMobile 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+
+  .d-modal-img-wrap {
+    height: 280px;
+    border-radius: 20px 20px 0 0;
+  }
+
+  .d-modal-info {
+    padding: 1.2rem 1.4rem 2rem;
+  }
+
+  @keyframes slideUpMobile {
+    from { opacity: 0; transform: translateY(60px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+}
