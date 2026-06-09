@@ -197,25 +197,33 @@
   <!-- ROW 1 -->
   <div class="features-row">
     <div class="features-col features-list">
-      <div class="feature-card">
+      <div class="feature-card" onclick="openFeatureModal('add')" style="cursor:pointer;">
         <span class="feature-icon">📋</span>
-        <div><div class="feature-title">Add Recipes</div>
-        <div class="feature-desc">Easily add new recipes with a name and ingredients in seconds.</div></div>
+        <div>
+          <div class="feature-title">Add Recipes</div>
+          <div class="feature-desc">Name your recipe, pick a category, and build your ingredient list with tag-based input.</div>
+        </div>
       </div>
-      <div class="feature-card">
+      <div class="feature-card" onclick="openFeatureModal('view')" style="cursor:pointer;">
         <span class="feature-icon">👁️</span>
-        <div><div class="feature-title">View Recipes</div>
-        <div class="feature-desc">Browse all your saved recipes in a clean, organized card layout.</div></div>
+        <div>
+          <div class="feature-title">View Recipes</div>
+          <div class="feature-desc">Browse all saved recipes in a clean card layout with name, category badge, and full ingredient list.</div>
+        </div>
       </div>
-      <div class="feature-card">
+      <div class="feature-card" onclick="openFeatureModal('save')" style="cursor:pointer;">
         <span class="feature-icon">💾</span>
-        <div><div class="feature-title">Save Recipes</div>
-        <div class="feature-desc">Persist your recipes to JSON files for future access anytime.</div></div>
+        <div>
+          <div class="feature-title">Save Recipes</div>
+          <div class="feature-desc">Persist your entire recipe collection to JSON so nothing is lost between sessions.</div>
+        </div>
       </div>
-      <div class="feature-card">
+      <div class="feature-card" onclick="openFeatureModal('delete')" style="cursor:pointer;">
         <span class="feature-icon">🗑️</span>
-        <div><div class="feature-title">Delete Recipes</div>
-        <div class="feature-desc">Remove unwanted recipes with one click and undo if needed.</div></div>
+        <div>
+          <div class="feature-title">Delete & Undo</div>
+          <div class="feature-desc">Remove unwanted recipes instantly, then restore them with one-click undo via a built-in stack.</div>
+        </div>
       </div>
     </div>
     <div class="features-col features-img-wrap">
@@ -229,25 +237,33 @@
       <img src="img 2.png" alt="Ingredients" class="feature-img"/>
     </div>
     <div class="features-col features-list">
-      <div class="feature-card">
+      <div class="feature-card" onclick="openFeatureModal('ingredients')" style="cursor:pointer;">
         <span class="feature-icon">🥕</span>
-        <div><div class="feature-title">Add Ingredients</div>
-        <div class="feature-desc">Tag-based ingredient input with instant add via Enter or button.</div></div>
+        <div>
+          <div class="feature-title">Ingredient Tags</div>
+          <div class="feature-desc">Add ingredients as interactive tags with optional quantities — press Enter or click Add for speed.</div>
+        </div>
       </div>
-      <div class="feature-card">
+      <div class="feature-card" onclick="openFeatureModal('removeIng')" style="cursor:pointer;">
         <span class="feature-icon">✂️</span>
-        <div><div class="feature-title">Delete Ingredients</div>
-        <div class="feature-desc">Remove individual ingredients from any recipe with ease.</div></div>
+        <div>
+          <div class="feature-title">Remove Ingredients</div>
+          <div class="feature-desc">Click the × on any tag to instantly remove a single ingredient from a recipe before saving.</div>
+        </div>
       </div>
-      <div class="feature-card">
+      <div class="feature-card" onclick="openFeatureModal('searchRecipe')" style="cursor:pointer;">
         <span class="feature-icon">🔍</span>
-        <div><div class="feature-title">Search Recipes</div>
-        <div class="feature-desc">Instantly find any recipe by name using fast binary search.</div></div>
+        <div>
+          <div class="feature-title">Search Recipes</div>
+          <div class="feature-desc">Find any recipe by name in milliseconds using a Hash Table lookup with Binary Search fallback.</div>
+        </div>
       </div>
-      <div class="feature-card">
+      <div class="feature-card" onclick="openFeatureModal('searchIng')" style="cursor:pointer;">
         <span class="feature-icon">🧪</span>
-        <div><div class="feature-title">Search Ingredients</div>
-        <div class="feature-desc">Look up which recipes contain a specific ingredient.</div></div>
+        <div>
+          <div class="feature-title">Search by Ingredient</div>
+          <div class="feature-desc">Enter any ingredient and instantly see every recipe that contains it, with quantities shown.</div>
+        </div>
       </div>
     </div>
   </div>
@@ -255,31 +271,48 @@
   <!-- ROW 3 -->
   <div class="features-row">
     <div class="features-col features-list">
-      <div class="feature-card">
+      <div class="feature-card" onclick="openFeatureModal('union')" style="cursor:pointer;">
         <span class="feature-icon">➕</span>
-        <div><div class="feature-title">Calculate Total Ingredients</div>
-        <div class="feature-desc">Use union operations to get the full combined ingredient list across recipes.</div></div>
+        <div>
+          <div class="feature-title">Total Ingredients (Union)</div>
+          <div class="feature-desc">Combine ingredient lists from two or all recipes using set union — perfect for shopping lists.</div>
+        </div>
       </div>
-      <div class="feature-card">
+      <div class="feature-card" onclick="openFeatureModal('intersection')" style="cursor:pointer;">
         <span class="feature-icon">∩</span>
-        <div><div class="feature-title">Find Common Ingredients</div>
-        <div class="feature-desc">Intersection operations reveal shared ingredients between recipes.</div></div>
+        <div>
+          <div class="feature-title">Common Ingredients</div>
+          <div class="feature-desc">Find shared ingredients between two or all recipes using set intersection operations.</div>
+        </div>
       </div>
-      <div class="feature-card">
-        <span class="feature-icon">∪</span>
-        <div><div class="feature-title">Find Combined Ingredients</div>
-        <div class="feature-desc">Union operations compile a master ingredient list across recipes.</div></div>
+      <div class="feature-card" onclick="openFeatureModal('mealplan')" style="cursor:pointer;">
+        <span class="feature-icon">📅</span>
+        <div>
+          <div class="feature-title">Meal Planner</div>
+          <div class="feature-desc">Plan breakfast, lunch, dinner and more on an interactive 2026 calendar — click any date to assign meals.</div>
+        </div>
       </div>
-      <div class="feature-card">
+      <div class="feature-card" onclick="openFeatureModal('dsa')" style="cursor:pointer;">
         <span class="feature-icon">🖥️</span>
-        <div><div class="feature-title">User-Friendly Interface</div>
-        <div class="feature-desc">Simple, intuitive design with smooth navigation and interactive feedback.</div></div>
+        <div>
+          <div class="feature-title">DSA-Powered Engine</div>
+          <div class="feature-desc">Built on Linked Lists, Stacks, Queues, Hash Tables, BSTs, and Binary Search for real performance.</div>
+        </div>
       </div>
     </div>
     <div class="features-col features-img-wrap">
       <img src="img 3.jpeg" alt="Food Analysis" class="feature-img"/>
     </div>
   </div>
+</section>
+
+<!-- ── FEATURE DETAIL MODAL ── -->
+<div id="fd-modal" class="fd-overlay hidden" onclick="closeFeatureModal()">
+  <div class="fd-box" onclick="event.stopPropagation()">
+    <button class="fd-close" onclick="closeFeatureModal()">✕</button>
+    <div id="fd-content"></div>
+  </div>
+</div>
 </section>
 
 
