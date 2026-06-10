@@ -430,7 +430,7 @@ section { padding: 5rem 3rem; }
    ABOUT — Red accent split layout
 ══════════════════════════════════════ */
 #about {
-  background: #0d0d0d;
+  background: var(--red);
   padding: 0;
   overflow: hidden;
 }
