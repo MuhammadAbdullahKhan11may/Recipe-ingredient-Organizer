@@ -373,7 +373,7 @@ nav {
    FEATURES STRIP (4 cards)
 ══════════════════════════════════════ */
 #features-strip {
-  background: #0d0d0d;
+  background: #ffffff;
   padding: 3rem;
   border-top: 1px solid rgba(255,255,255,0.05);
   border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -385,7 +385,7 @@ nav {
   max-width: 1100px; margin: 0 auto;
 }
 .fstrip-card {
-  background: #141414;
+  background: #f5f5f5;
   border: 1px solid rgba(255,255,255,0.07);
   border-radius: 14px;
   padding: 1.5rem;
@@ -401,8 +401,8 @@ nav {
   flex-shrink: 0;
 }
 .fstrip-icon svg { stroke: var(--red) !important; }
-.fstrip-card strong { color: #fff; font-size: 0.93rem; display: block; margin-bottom: 0.3rem; }
-.fstrip-card p { color: #666; font-size: 0.82rem; line-height: 1.55; margin: 0; }
+.fstrip-card strong { color: #111; font-size: 0.93rem; display: block; margin-bottom: 0.3rem; }
+.fstrip-card p { color: #555; font-size: 0.82rem; line-height: 1.55; margin: 0; }
 @media (max-width: 768px) {
   #features-strip { padding: 2rem 1.25rem; }
   .features-strip-grid { grid-template-columns: 1fr 1fr; gap: 1rem; }
