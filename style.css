@@ -459,7 +459,7 @@ section { padding: 5rem 3rem; }
   pointer-events: none;
 }
 .about-text-col {
-  background: var(--red);
+  background: var(--red-dark);
   display: flex; flex-direction: column;
   justify-content: center;
   padding: 4rem;
