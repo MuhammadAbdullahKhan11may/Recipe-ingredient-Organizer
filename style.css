@@ -1324,117 +1324,155 @@ footer {
 }
 
 /* ══════════════════════════════════════
-   DISCOVER PANELS — 3 image grid
+   DISCOVER PANELS — 2×2 grid like ref
 ══════════════════════════════════════ */
 .discover-panels {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
+  grid-template-rows: 360px 360px;
   gap: 0;
-  margin-top: 3rem;
+  width: 100%;
 }
 
-/* Panel base */
+/* Every panel is a positioned container */
 .disc-panel {
   position: relative;
   overflow: hidden;
-  min-height: 380px;
   display: flex;
 }
 .disc-panel-img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
   position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+  display: block;
   transition: transform 0.5s ease;
+  z-index: 0;
 }
-.disc-panel:hover .disc-panel-img { transform: scale(1.05); }
+.disc-panel:hover .disc-panel-img { transform: scale(1.04); }
 
-/* Panel 1: red box, spans full left column */
+/* ── TOP-LEFT: solid red quadrant ── */
 .disc-panel-red {
   grid-column: 1;
-  grid-row: 1 / 3;
-  min-height: 500px;
-  align-items: flex-start;
+  grid-row: 1;
+  background: var(--red);
+  align-items: stretch;
 }
+/* No image in red panel — hide it */
+.disc-panel-red .disc-panel-img { display: none; }
+
 .disc-red-box {
   position: relative; z-index: 2;
-  background: var(--red);
-  padding: 2.5rem 2rem;
-  max-width: 280px;
-  min-height: 100%;
+  width: 100%;
+  padding: 3rem 2.8rem;
   display: flex; flex-direction: column;
-  gap: 0.8rem;
   justify-content: center;
+  gap: 1rem;
 }
 .disc-red-eyebrow {
-  font-size: 0.75rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 2px;
-  color: rgba(255,255,255,0.7); margin: 0;
+  font-size: 0.8rem; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 2.5px;
+  color: rgba(255,255,255,0.65); margin: 0;
 }
 .disc-red-title {
   font-family: 'Syne', sans-serif;
-  font-size: 2rem; font-weight: 800;
-  color: #fff; line-height: 1.1; margin: 0;
+  font-size: 2.4rem; font-weight: 800;
+  color: #fff; line-height: 1.08; margin: 0;
 }
 .disc-red-desc {
-  font-size: 0.85rem; color: rgba(255,255,255,0.8);
-  line-height: 1.7; margin: 0;
+  font-size: 0.9rem; color: rgba(255,255,255,0.82);
+  line-height: 1.75; margin: 0;
+  max-width: 360px;
 }
 .disc-red-btn {
-  display: inline-block;
-  padding: 0.6rem 1.3rem;
-  border-radius: 6px;
-  font-weight: 700; font-size: 0.85rem;
+  display: inline-flex; align-items: center;
+  padding: 0.65rem 1.5rem;
+  border-radius: 5px;
+  font-weight: 700; font-size: 0.88rem;
   text-decoration: none; text-align: center;
   background: #fff; color: var(--red);
   border: 2px solid #fff;
-  transition: background 0.2s, color 0.2s;
   width: fit-content;
+  transition: background 0.2s, color 0.2s;
+  margin-top: 0.25rem;
 }
 .disc-red-btn:hover { background: transparent; color: #fff; }
 .disc-red-btn-outline {
   background: transparent; color: #fff;
-  border-color: rgba(255,255,255,0.5);
+  border-color: rgba(255,255,255,0.55);
+  margin-top: 0;
 }
-.disc-red-btn-outline:hover { background: rgba(255,255,255,0.1); }
+.disc-red-btn-outline:hover { background: rgba(255,255,255,0.12); }
 
-/* Panels 2 & 3: dark image with text overlay */
-.disc-panel-dark {
+/* ── TOP-RIGHT: image only, no text ── */
+.disc-panel-top-right {
   grid-column: 2;
-  min-height: 250px;
+  grid-row: 1;
 }
+
+/* ── BOTTOM panels: image + text overlay ── */
+.disc-panel-dark {
+  grid-column: auto;
+  grid-row: 2;
+}
+
+/* Dark gradient overlay for text readability */
+.disc-panel-dark::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(0,0,0,0.82) 0%,
+    rgba(0,0,0,0.4)  50%,
+    rgba(0,0,0,0.1)  100%
+  );
+  z-index: 1;
+}
+
 .disc-panel-overlay {
-  position: relative; z-index: 2;
-  background: linear-gradient(to right, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.3) 100%);
-  padding: 2rem 2rem;
+  position: absolute; inset: 0;
+  z-index: 2;
+  padding: 2rem 2.5rem;
   display: flex; flex-direction: column;
   justify-content: flex-end;
-  width: 100%;
+  gap: 0.4rem;
 }
 .disc-panel-title {
   font-family: 'Syne', sans-serif;
-  font-size: 1.6rem; font-weight: 800;
-  color: #fff; line-height: 1.1;
-  margin: 0 0 0.5rem;
+  font-size: 1.75rem; font-weight: 800;
+  color: #fff; line-height: 1.05;
+  margin: 0;
   text-transform: uppercase;
+  letter-spacing: -0.5px;
 }
 .disc-panel-desc {
-  font-size: 0.82rem; color: rgba(255,255,255,0.75);
-  line-height: 1.6; margin: 0 0 0.75rem;
-  max-width: 320px;
+  font-size: 0.85rem; color: rgba(255,255,255,0.78);
+  line-height: 1.65; margin: 0;
+  max-width: 340px;
 }
 .disc-panel-price {
-  font-size: 1.1rem; color: #fff;
+  font-size: 1rem; color: #fff;
+  margin-top: 0.2rem;
 }
-.disc-panel-price strong { color: var(--red-light); }
+.disc-panel-price strong { color: var(--red-light); font-size: 1.1rem; }
 
-/* Mobile: hide all 3 panels, show only red box */
-@media (max-width: 768px) {
-  .discover-panels { grid-template-columns: 1fr; }
-  .disc-panel-red { grid-row: auto; min-height: auto; }
-  .disc-panel-red .disc-panel-img { display: none; }
-  .disc-red-box { max-width: 100%; min-height: auto; }
-  .disc-panel-dark { display: none; }
+/* ── Responsive ── */
+@media (max-width: 860px) {
+  .discover-panels {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 300px 300px;
+  }
+  .disc-red-title { font-size: 1.8rem; }
+  .disc-red-box { padding: 2rem 1.6rem; }
+  .disc-panel-overlay { padding: 1.5rem; }
+  .disc-panel-title { font-size: 1.4rem; }
+}
+
+@media (max-width: 560px) {
+  .discover-panels {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+  .disc-panel { min-height: 280px; }
+  .disc-panel-top-right { display: none; }
+  .disc-panel-dark { grid-row: auto; }
 }
