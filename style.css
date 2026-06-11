@@ -1309,8 +1309,8 @@ footer {
 
 /* Desktop: hide food image panel, show full bg image */
 @media (min-width: 1001px) {
-  .hero-right { display: none; }
-  .hero-inner  { grid-template-columns: 1fr; max-width: 700px; }
+  .hero-right { display: flex; }
+  .hero-inner  { grid-template-columns: 1fr 1fr; max-width: 1260px; }
   .hero-bg-img { opacity: 0.55; }
 }
 
