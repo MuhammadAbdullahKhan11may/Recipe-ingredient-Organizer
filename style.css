@@ -1318,5 +1318,7 @@ footer {
 @media (max-width: 1000px) {
   .hero-bg-img { display: none; }
   .hero-overlay { display: none; }
+  .hero-right  { display: none; }
+}
   .hero-right  { display: flex; }
 }
