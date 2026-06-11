@@ -225,53 +225,95 @@
      ABOUT US
 ══════════════════════════════════════ -->
 <section id="about">
-  <div class="section-label" style="text-align:center;">About Us</div>
-  <div class="about-layout">
 
-    <div class="about-img-col">
-      <img src="img 5.webp" alt="Food spread" class="about-img"/>
-      <div class="about-img-col">
-  <img src="img 5.webp" alt="Food spread" class="about-img"/>
+  <!-- TOP: Split layout -->
+  <div class="about-top">
 
-  <!-- Stats bar below image -->
-  <div style="
-    display: flex;
-    justify-content: space-around;
-    padding: 1.2rem 1rem;
-    background: rgba(0,0,0,0.25);
-    border-top: 1px solid rgba(255,255,255,0.15);
-  ">
-    <div style="text-align:center;">
-      <div style="font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:#fff;">36+</div>
-      <div style="font-size:0.72rem;color:rgba(255,255,255,0.7);letter-spacing:1.5px;text-transform:uppercase;">Recipes</div>
-    </div>
-    <div style="width:1px;background:rgba(255,255,255,0.2);"></div>
-    <div style="text-align:center;">
-      <div style="font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:#fff;">6</div>
-      <div style="font-size:0.72rem;color:rgba(255,255,255,0.7);letter-spacing:1.5px;text-transform:uppercase;">Categories</div>
-    </div>
-    <div style="width:1px;background:rgba(255,255,255,0.2);"></div>
-    <div style="text-align:center;">
-      <div style="font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:#fff;">DSA</div>
-      <div style="font-size:0.72rem;color:rgba(255,255,255,0.7);letter-spacing:1.5px;text-transform:uppercase;">Powered</div>
-    </div>
-  </div>
-
-</div>
-    </div>
-
-    <div class="about-text-col">
-      <div class="about-box">
-        Welcome to <strong>Recipe Organizer</strong>, a smart and user-friendly platform designed to simplify recipe management.
-        Our website helps users organize recipes, manage ingredients efficiently, and quickly access cooking information in one place.
-        Whether you're a home cook, student, or food enthusiast, Recipe Organizer provides a convenient way to keep your recipes
-        structured, searchable, and easy to maintain.
+    <!-- Left: images -->
+    <div class="about-img-side">
+      <div class="about-main-img-wrap">
+        <img src="img 5.webp" alt="Food" class="about-main-img"/>
+        <!-- Floating badge -->
+        <div class="about-img-badge">
+          <span class="about-badge-icon">🍲</span>
+          <span class="about-badge-text">Ideal for<br><strong>Healthy Food</strong></span>
+        </div>
+      </div>
+      <!-- Circular chef photo -->
+      <div class="about-chef-circle">
+        <img src="img 7.jpeg" alt="Chef" class="about-chef-img"/>
       </div>
     </div>
 
-  </div>
-</section>
+    <!-- Right: text -->
+    <div class="about-text-side">
+      <div class="about-eyebrow">Who We Are</div>
+      <h2 class="about-heading">About Us</h2>
+      <p class="about-para">
+        Welcome to <strong>Recipe Organizer</strong>, a smart and user-friendly platform 
+        designed to simplify recipe management. Our website helps users organize recipes 
+        and manage ingredients efficiently.
+      </p>
+      <p class="about-para">
+        Whether you're a home cook, student, or food enthusiast, Recipe Organizer provides 
+        a convenient way to keep your recipes structured, searchable, and easy to maintain — 
+        all powered by real Data Structures and Algorithms under the hood.
+      </p>
+      <p class="about-para">
+        Built as a DSA course project at Mohammad Ali Jinnah University, our platform 
+        uses Linked Lists, Stacks, Queues, Hash Tables, BSTs, and Binary Search to deliver 
+        real performance behind a clean interface.
+      </p>
+      <a href="#recipe" class="about-read-more">Get Started →</a>
+    </div>
 
+  </div>
+
+  <!-- BOTTOM: 3 feature cards -->
+  <div class="about-cards-row">
+
+    <div class="about-card">
+      <div class="about-card-img-wrap">
+        <img src="img 4.jpg" alt="Recipes" class="about-card-img"/>
+        <div class="about-card-icon-circle">🍳</div>
+      </div>
+      <h3 class="about-card-title">Recipes</h3>
+      <p class="about-card-desc">
+        Add, view, search, and delete recipes instantly. Tag-based ingredients 
+        with optional quantities make building a recipe fast and clean.
+      </p>
+      <a href="#recipe" class="about-card-btn">Explore →</a>
+    </div>
+
+    <div class="about-card about-card-accent">
+      <div class="about-card-img-wrap">
+        <img src="img 2.png" alt="Meal Planner" class="about-card-img"/>
+        <div class="about-card-icon-circle">📅</div>
+      </div>
+      <h3 class="about-card-title">Meal Planner</h3>
+      <p class="about-card-desc">
+        Plan your breakfast, lunch, dinner and more on an interactive 2026 
+        calendar. Click any date to assign meals and track your week.
+      </p>
+      <a href="#recipe" class="about-card-btn about-card-btn-red">Plan Now →</a>
+    </div>
+
+    <div class="about-card">
+      <div class="about-card-img-wrap">
+        <img src="img 3.jpeg" alt="Discover" class="about-card-img"/>
+        <div class="about-card-icon-circle">🔍</div>
+      </div>
+      <h3 class="about-card-title">Discover</h3>
+      <p class="about-card-desc">
+        Browse 36+ curated recipes across 6 categories. Find dishes by 
+        ingredient, filter by type, and get step-by-step cooking instructions.
+      </p>
+      <a href="discover.html" class="about-card-btn">Discover →</a>
+    </div>
+
+  </div>
+
+</section>
 <!-- ══════════════════════════════════════
      KEY FEATURES
 ══════════════════════════════════════ -->
