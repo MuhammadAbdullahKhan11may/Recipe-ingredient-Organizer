@@ -1324,8 +1324,10 @@ footer {
 }
 
 /* ══════════════════════════════════════
-   DISCOVER PANELS — 2×2 grid like ref
+   DISCOVER PANELS — 2×2 grid
 ══════════════════════════════════════ */
+#discover { padding: 0; background: #000; }
+
 .discover-panels {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -1334,12 +1336,12 @@ footer {
   width: 100%;
 }
 
-/* Every panel is a positioned container */
 .disc-panel {
   position: relative;
   overflow: hidden;
   display: flex;
 }
+
 .disc-panel-img {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
@@ -1350,80 +1352,67 @@ footer {
 }
 .disc-panel:hover .disc-panel-img { transform: scale(1.04); }
 
-/* ── TOP-LEFT: solid red quadrant ── */
+/* TOP-LEFT: red */
 .disc-panel-red {
   grid-column: 1;
   grid-row: 1;
   background: var(--red);
   align-items: stretch;
-  min-height: 360px;
 }
-/* No image in red panel — hide it */
 .disc-panel-red .disc-panel-img { display: none; }
 
 .disc-red-box {
   position: relative; z-index: 2;
-  width: 100%;
-  height: 100%;
-  padding: 3rem 2.8rem;
+  width: 100%; height: 100%;
+  padding: 2.5rem 2.8rem;
   display: flex; flex-direction: column;
   justify-content: center;
   gap: 1rem;
 }
-.disc-red-eyebrow {
-  font-size: 0.8rem; font-weight: 700;
-  text-transform: uppercase; letter-spacing: 2.5px;
-  color: rgba(255,255,255,0.65); margin: 0;
+
+/* override hero-badge inside red box */
+.disc-red-box .hero-badge {
+  display: inline-flex;
+  width: fit-content;
+  border-color: rgba(255,255,255,0.3);
+  color: rgba(255,255,255,0.7);
+  background: transparent;
+  font-size: 0.68rem;
+  padding: 0.35rem 0.8rem;
 }
+
 .disc-red-title {
   font-family: 'Syne', sans-serif;
-  font-size: 2.4rem; font-weight: 800;
-  color: #fff; line-height: 1.08; margin: 0;
+  font-size: 2.6rem; font-weight: 800;
+  color: #fff; line-height: 1.05; margin: 0;
 }
+
 .disc-red-desc {
-  font-size: 0.9rem; color: rgba(255,255,255,0.82);
+  font-size: 0.88rem; color: rgba(255,255,255,0.82);
   line-height: 1.75; margin: 0;
-  max-width: 360px;
+  max-width: 340px;
 }
+
 .disc-red-btn {
   display: inline-flex; align-items: center;
   padding: 0.65rem 1.5rem;
   border-radius: 5px;
   font-weight: 700; font-size: 0.88rem;
-  text-decoration: none; text-align: center;
+  text-decoration: none;
   background: #fff; color: var(--red);
   border: 2px solid #fff;
   width: fit-content;
   transition: background 0.2s, color 0.2s;
-  margin-top: 0.25rem;
 }
 .disc-red-btn:hover { background: transparent; color: #fff; }
-.disc-red-btn-outline {
-  background: transparent; color: #fff;
-  border-color: rgba(255,255,255,0.55);
-  margin-top: 0;
-}
 
-
-/* ── TOP-RIGHT: image only, no text ── */
+/* TOP-RIGHT: image only */
 .disc-panel-top-right {
   grid-column: 2;
   grid-row: 1;
 }
 
-/* ── BOTTOM panels: image + text overlay ── */
-.disc-panel-dark {
-  grid-column: auto;
-  grid-row: 2;
-}
-
-/* ── BOTTOM panels: image + text overlay ── */
-.disc-panel-dark {
-  grid-column: auto;
-  grid-row: 2;
-}
-
-/* ── Fix bottom panel exact positions ── */
+/* BOTTOM panels */
 .disc-panel-dark:nth-child(3) {
   grid-column: 1;
   grid-row: 2;
@@ -1433,15 +1422,14 @@ footer {
   grid-row: 2;
 }
 
-/* Dark gradient overlay for text readability */
 .disc-panel-dark::before {
   content: '';
   position: absolute; inset: 0;
   background: linear-gradient(
     to top,
-    rgba(0,0,0,0.82) 0%,
+    rgba(0,0,0,0.85) 0%,
     rgba(0,0,0,0.4)  50%,
-    rgba(0,0,0,0.1)  100%
+    rgba(0,0,0,0.05) 100%
   );
   z-index: 1;
 }
@@ -1454,35 +1442,32 @@ footer {
   justify-content: flex-end;
   gap: 0.4rem;
 }
+
 .disc-panel-title {
   font-family: 'Syne', sans-serif;
   font-size: 1.75rem; font-weight: 800;
   color: #fff; line-height: 1.05;
-  margin: 0;
-  text-transform: uppercase;
+  margin: 0; text-transform: uppercase;
   letter-spacing: -0.5px;
 }
+
 .disc-panel-desc {
   font-size: 0.85rem; color: rgba(255,255,255,0.78);
-  line-height: 1.65; margin: 0;
-  max-width: 340px;
+  line-height: 1.65; margin: 0; max-width: 340px;
 }
+
 .disc-panel-price {
-  font-size: 1rem; color: #fff;
-  margin-top: 0.2rem;
+  font-size: 1rem; color: #fff; margin-top: 0.2rem;
 }
 .disc-panel-price strong { color: var(--red-light); font-size: 1.1rem; }
 
-/* ── Responsive ── */
+/* Responsive */
 @media (max-width: 860px) {
-  .discover-panels {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 300px 300px;
-  }
-  .disc-red-title { font-size: 1.8rem; }
-  .disc-red-box { padding: 2rem 1.6rem; }
+  .discover-panels { grid-template-rows: 300px 300px; }
+  .disc-red-title { font-size: 1.9rem; }
+  .disc-red-box { padding: 2rem 1.8rem; }
   .disc-panel-overlay { padding: 1.5rem; }
-  .disc-panel-title { font-size: 1.4rem; }
+  .disc-panel-title { font-size: 1.3rem; }
 }
 
 @media (max-width: 560px) {
@@ -1492,5 +1477,9 @@ footer {
   }
   .disc-panel { min-height: 280px; }
   .disc-panel-top-right { display: none; }
-  .disc-panel-dark { grid-row: auto; }
+  .disc-panel-dark:nth-child(3),
+  .disc-panel-dark:nth-child(4) {
+    grid-column: 1;
+    grid-row: auto;
+  }
 }
