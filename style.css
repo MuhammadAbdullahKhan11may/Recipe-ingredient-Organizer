@@ -1356,6 +1356,7 @@ footer {
   grid-row: 1;
   background: var(--red);
   align-items: stretch;
+  min-height: 360px;
 }
 /* No image in red panel — hide it */
 .disc-panel-red .disc-panel-img { display: none; }
@@ -1363,6 +1364,7 @@ footer {
 .disc-red-box {
   position: relative; z-index: 2;
   width: 100%;
+  height: 100%;
   padding: 3rem 2.8rem;
   display: flex; flex-direction: column;
   justify-content: center;
@@ -1401,7 +1403,7 @@ footer {
   border-color: rgba(255,255,255,0.55);
   margin-top: 0;
 }
-.disc-red-btn-outline:hover { background: rgba(255,255,255,0.12); }
+
 
 /* ── TOP-RIGHT: image only, no text ── */
 .disc-panel-top-right {
@@ -1412,6 +1414,22 @@ footer {
 /* ── BOTTOM panels: image + text overlay ── */
 .disc-panel-dark {
   grid-column: auto;
+  grid-row: 2;
+}
+
+/* ── BOTTOM panels: image + text overlay ── */
+.disc-panel-dark {
+  grid-column: auto;
+  grid-row: 2;
+}
+
+/* ── Fix bottom panel exact positions ── */
+.disc-panel-dark:nth-child(3) {
+  grid-column: 1;
+  grid-row: 2;
+}
+.disc-panel-dark:nth-child(4) {
+  grid-column: 2;
   grid-row: 2;
 }
 
