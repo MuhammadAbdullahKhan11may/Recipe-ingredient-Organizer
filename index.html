@@ -387,7 +387,6 @@
     <div id="fd-content"></div>
   </div>
 </div>
-</section>
 
 <!-- ══════════════════════════════════════
     Discover More
@@ -459,8 +458,7 @@
 <section id="recipe">
   <div class="section-label">Recipe Manager</div>
   <div class="recipe-layout">
-
-    <div class="sidebar">
+    
 <div class="sidebar">
   <button class="sidebar-btn active" onclick="showPanel('list', this)"><span class="icon">📋</span> All Recipes</button>
   <button class="sidebar-btn" onclick="showPanel('add', this)"><span class="icon">➕</span> Add Recipe</button>
@@ -475,11 +473,6 @@
   <input type="file" id="fileInput" accept=".json" class="hidden" onchange="loadFromJSON(event)"/>
   <button class="sidebar-btn" onclick="document.getElementById('fileInput').click()"><span class="icon">📂</span> Load Recipes</button>
 </div>
-
-      
-<button class="sidebar-btn" onclick="showPanel('mealplanner', this)"><span class="icon">📅</span> Plan Meals</button>
-      <input type="file" id="fileInput" accept=".json" class="hidden" onchange="loadFromJSON(event)"/>
-    </div>
 
     <div class="main-panel">
 
