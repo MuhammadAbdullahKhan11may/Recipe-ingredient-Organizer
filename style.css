@@ -606,7 +606,7 @@ section { padding: 5rem 3rem; }
    KEY FEATURES — alternating rows, dark
 ══════════════════════════════════════ */
 #features {
-  background: #080808;
+  background: var(--red);
   padding: 5rem 0;
   position: relative; overflow: hidden;
 }
