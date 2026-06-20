@@ -1568,3 +1568,19 @@ footer {
     transform: translateY(0);
   }
 }
+/* ── FEATURES FULL-WIDTH PHOTO GRID ── */
+.features-img-wrap .discover-panels {
+  width: 100%;
+  height: 480px;
+  grid-template-rows: 240px 240px;
+}
+
+/* Ensure nested discover-panels don't inherit max-width constraints */
+#features .features-row {
+  overflow: visible;
+}
+
+#features .features-col.features-img-wrap {
+  padding: 0 !important;
+  overflow: hidden;
+}
