@@ -1588,3 +1588,4 @@ footer {
   padding: 0 !important;
   overflow: hidden;
 }
+#features-row2, #features-row3 { padding: 0; margin-top: 0; }
