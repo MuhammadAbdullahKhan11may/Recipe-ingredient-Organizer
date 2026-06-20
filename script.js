@@ -205,15 +205,7 @@ function validateIng(input) {
   err.textContent = '';
 }
 
-function validateQty(input) {
-  const err = document.getElementById('qty-error');
-  if (!err) return;
-  const val = input.value.trim();
-  if (val === '') { err.textContent = ''; return; }
-  // Allow: digits, decimals, fractions (1/2), spaces, units (g, kg, ml, cups, etc.)
-  const valid = /^[\d\/\.\s]*(g|kg|ml|l|oz|lb|cup|cups|tsp|tbsp|litre|liter|litres|liters|piece|pieces|slice|slices|unit|units)?$/i.test(val);
-  err.textContent = valid ? '' : '✗ Quantity must start with a number (e.g. 2 cups, 500g, 1/2 tsp).';
-}
+function validateQty(input) {}
 
 
 // ── DSA 6: BINARY SEARCH on recipe names ─────────────────────
