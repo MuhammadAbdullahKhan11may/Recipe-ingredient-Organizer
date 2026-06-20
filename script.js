@@ -1,4 +1,3 @@
-
 // ══════════════════════════════════════════════════════════════
 //  RECIPE ORGANIZER — script.js
 //  DSA Concepts Used:
@@ -234,19 +233,6 @@ function searchByIngredient(ingName) {
 }
 
 
-// ── PANEL SWITCHING ───────────────────────────────────────────
-function showPanel(id) {
-  document.querySelectorAll('.main-panel > div').forEach(d => d.classList.add('hidden'));
-  document.getElementById('panel-' + id).classList.remove('hidden');
-  document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
-  event.currentTarget.classList.add('active');
-
-  if (id === 'list')   renderList();
-  if (id === 'recent') renderRecent();
-  if (['union','intersection','delete'].includes(id)) populateSelects();
-}
-
-
 // ── RENDER: ALL RECIPES ───────────────────────────────────────
 function renderList() {
   const c = document.getElementById('recipe-list-container');
@@ -385,7 +371,7 @@ function addIngredientTag() {
   const qty  = qtyInput.value.trim();
 
   if (!name) { showToast('Enter an ingredient name first', true); return; }
-  
+
 
   // Quantity validation: if entered, must start with a number
   if (qty !== '') {
@@ -587,17 +573,6 @@ function deleteSelected() {
   deleteStack.push(removed);
   showToast(`'${removed.name}' deleted. Use ↩️ Undo to restore.`);
   populateSelects();
-}
-
-function undoDelete() {
-  // DSA: pop from Stack
-  if (deleteStack.isEmpty()) { showToast('Nothing to undo!', true); return; }
-  const r = deleteStack.pop();
-  // DSA: append back to Linked List
-  recipeList.append(r);
-  syncMirror();
-  showToast(`'${r.name}' restored! ✓`);
-  renderList();
 }
 
 
@@ -842,12 +817,6 @@ function mpSaveMeals() {
 }
 
 /* ── Init planner when panel opens ── */
-const _origShowPanel = showPanel;
-// Patch showPanel to init mp on first open
-const _mpInit = () => {
-  if (!document.getElementById('panel-mealplanner')) return;
-  mpRender();
-};
 document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     const btn = [...document.querySelectorAll('.sidebar-btn')]
@@ -956,173 +925,6 @@ function closeMemberModal() {
 // Close on Escape
 document.addEventListener('keydown', e => {
   if (e.key === 'Escape') closeMemberModal();
-});
-
-// ── FEATURE DETAIL MODAL ──────────────────────────────────────
-const FEATURE_DATA = {
-  add: {
-    icon: '📋', tag: 'Recipe Manager',
-    title: 'Add Recipes',
-    desc: 'Creating a recipe is fast and structured. Enter a name, choose a category (Breakfast, Lunch, Dinner, and more), then build your ingredient list one tag at a time — each with an optional quantity.',
-    bullets: [
-      'Press Enter or click Add to append each ingredient as a tag',
-      'Optional quantity field accepts formats like 2 cups, 500g, or 1/2 tsp',
-      'Duplicate ingredient names are blocked automatically',
-      'Recipe is saved into a Linked List and mirrored for instant access',
-    ],
-  },
-  view: {
-    icon: '👁️', tag: 'Recipe Manager',
-    title: 'View All Recipes',
-    desc: 'Every saved recipe appears as a clean card showing its name, colour-coded category badge, and full ingredient list. Click View on any card to open a detailed modal with quantities.',
-    bullets: [
-      'Colour-coded category badges: Breakfast, Lunch, Dinner, Dessert, and more',
-      'Ingredients sorted alphabetically using a Binary Search Tree',
-      'Quantity shown per ingredient inside the detail modal',
-      'Cards update instantly when you add or delete a recipe',
-    ],
-  },
-  save: {
-    icon: '💾', tag: 'Persistence',
-    title: 'Save Recipes to JSON',
-    desc: 'Your recipe collection can be exported as a structured JSON file and reloaded in any future session. Nothing is lost when you close the browser — just load your file to restore everything.',
-    bullets: [
-      'Export all recipes to a .json file with one click',
-      'Reload a saved file to restore your full recipe collection',
-      'JSON structure preserves names, categories, ingredients, and quantities',
-      'Compatible with any session — no account or login required',
-    ],
-  },
-  delete: {
-    icon: '🗑️', tag: 'Recipe Manager',
-    title: 'Delete & Undo',
-    desc: 'Select any recipe from the dropdown and delete it instantly. Deleted recipes are pushed onto a Stack, so you can undo the last deletion and restore the recipe to your collection at any time.',
-    bullets: [
-      'Select a recipe by name from the dropdown and confirm deletion',
-      'Deleted recipe is pushed onto a LIFO Stack — last in, first out',
-      'Undo Delete button pops the Stack and restores the recipe',
-      'Stack holds up to the 10 most recent deletions',
-    ],
-  },
-  ingredients: {
-    icon: '🥕', tag: 'Ingredient Input',
-    title: 'Tag-Based Ingredient Input',
-    desc: 'Ingredients are added as interactive pill tags rather than plain text, keeping the list clean and easy to manage. Each tag can carry an optional quantity that appears inline.',
-    bullets: [
-      'Press Enter or click the Add button to append each ingredient',
-      'Quantity is optional — leave it blank if not needed',
-      'Duplicates are caught before they are added',
-      'Each tag has an × button to remove it before saving',
-    ],
-  },
-  removeIng: {
-    icon: '✂️', tag: 'Ingredient Input',
-    title: 'Remove Ingredients',
-    desc: 'While building a recipe, click the × on any ingredient tag to remove it immediately. The list updates in real time so you always see exactly what will be saved.',
-    bullets: [
-      'Click × on any tag to remove that ingredient instantly',
-      'Works during recipe creation before the recipe is saved',
-      'No confirmation needed — removal is immediate and reversible by re-adding',
-      'Remaining tags re-render instantly with correct indices',
-    ],
-  },
-  searchRecipe: {
-    icon: '🔍', tag: 'Search',
-    title: 'Search Recipes by Name',
-    desc: 'Type a recipe name and hit Search. The system checks the Hash Table first for O(1) lookup, then falls back to Binary Search across a sorted name array. Results show category, ingredients, and quantities.',
-    bullets: [
-      'Hash Table provides O(1) average-case lookup by lowercase name',
-      'Binary Search fallback runs in O(log n) on the sorted recipe array',
-      'Result card shows category badge, all ingredients, and quantities',
-      'Search is case-insensitive and works on exact name matches',
-    ],
-  },
-  searchIng: {
-    icon: '🧪', tag: 'Search',
-    title: 'Search by Ingredient',
-    desc: 'Enter any ingredient name to find every recipe that contains it. The system scans all recipes and returns a grouped list of matches, including the quantity for that ingredient in each recipe.',
-    bullets: [
-      'Linear scan across all recipes and their ingredient arrays — O(n×m)',
-      'Returns all matching recipes grouped in a result card',
-      'Quantity for the searched ingredient is shown per recipe',
-      'Case-insensitive matching — "Tomato" and "tomato" both match',
-    ],
-  },
-  union: {
-    icon: '➕', tag: 'Set Operations',
-    title: 'Total Ingredients — Union',
-    desc: 'Choose two recipes and compute their union to get a deduplicated master list of all ingredients combined. You can also run union across all recipes at once to generate a complete shopping list.',
-    bullets: [
-      'A ∪ B combines ingredient names from two selected recipes',
-      'All Recipes mode unions every recipe in your collection',
-      'Duplicate ingredient names are removed automatically via JavaScript Set',
-      'Result is sorted alphabetically using a Binary Search Tree',
-    ],
-  },
-  intersection: {
-    icon: '∩', tag: 'Set Operations',
-    title: 'Common Ingredients — Intersection',
-    desc: 'Find exactly which ingredients two recipes share using set intersection. Useful for meal planning with pantry constraints — run it across all recipes to find universally shared ingredients.',
-    bullets: [
-      'A ∩ B returns only ingredient names present in both recipes',
-      'All Recipes mode intersects across your entire collection',
-      'Empty set (∅) is shown clearly when no common ingredients exist',
-      'Result is sorted alphabetically via BST traversal',
-    ],
-  },
-  mealplan: {
-    icon: '📅', tag: 'Meal Planner',
-    title: 'Interactive Meal Planner',
-    desc: 'A full 2026 calendar lets you click any date and assign one or more meals — Breakfast, Lunch, Dinner, Snacks, and more. Planned dates are highlighted in green so you can see your week at a glance.',
-    bullets: [
-      'Click any date cell to open the meal entry form for that day',
-      'Add multiple meals per day — each with a type and recipe name',
-      'Planned dates are highlighted green with a dot indicator',
-      'Navigate forward through months; saved meals persist within the session',
-    ],
-  },
-  dsa: {
-    icon: '🖥️', tag: 'Under the Hood',
-    title: 'DSA-Powered Engine',
-    desc: 'Every feature in the Recipe Manager is backed by a real data structure — not just arrays. This was built as a DSA course project to demonstrate how classic algorithms solve practical everyday problems.',
-    bullets: [
-      'Linked List — dynamic recipe storage with O(n) traversal and deletion',
-      'Stack — undo-delete with LIFO behaviour, capped at 10 entries',
-      'Queue — recently added recipes tracker with FIFO eviction',
-      'Hash Table — O(1) recipe lookup by name; BST — sorted ingredient output',
-    ],
-  },
-};
-
-function openFeatureModal(key) {
-  const d = FEATURE_DATA[key];
-  if (!d) return;
-
-  document.getElementById('fd-content').innerHTML = `
-    <div class="fd-icon-wrap">${d.icon}</div>
-    <div class="fd-tag">${d.tag}</div>
-    <div class="fd-title">${d.title}</div>
-    <div class="fd-divider"></div>
-    <p class="fd-desc">${d.desc}</p>
-    <ul class="fd-bullets">
-      ${d.bullets.map(b => `
-        <li><span class="fd-bullet-dot"></span>${b}</li>
-      `).join('')}
-    </ul>
-  `;
-
-  document.getElementById('fd-modal').classList.remove('hidden');
-  document.body.style.overflow = 'hidden';
-}
-
-function closeFeatureModal() {
-  document.getElementById('fd-modal').classList.add('hidden');
-  document.body.style.overflow = '';
-}
-
-// Close on Escape
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') closeFeatureModal();
 });
 
 // ══════════════════════════════════════
@@ -1249,10 +1051,8 @@ function removeIngFromRecipe(recipeIdx, ingIdx) {
   showToast(`'${removed.name}' removed from '${r.name}' ✓`);
 }
 
-// Patch showPanel to populate editIng select on open
-const _baseShowPanel = showPanel;
-showPanel = function(id, btn) {
-  // Call original
+// ── PANEL SWITCHING (single source of truth) ──────────────────
+function showPanel(id, btn) {
   document.querySelectorAll('.main-panel > div').forEach(d => d.classList.add('hidden'));
   document.getElementById('panel-' + id).classList.remove('hidden');
   document.querySelectorAll('.sidebar-btn').forEach(b => b.classList.remove('active'));
@@ -1271,4 +1071,4 @@ showPanel = function(id, btn) {
     else document.getElementById('editIng-tag-area').innerHTML =
       '<span style="color:#555;font-size:0.85rem;">No recipes yet.</span>';
   }
-};
+}
